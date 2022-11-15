@@ -18,8 +18,8 @@ class User(db.Model, UserMixin):
 
     # Relationships will go here
     reviews = db.relationship("Review", back_populates="user", cascade="all, delete-orphan", lazy="joined")
-    # Reservations Relationship
-    # Favorites relationship
+    reservations = db.relationship("Reservation", back_populates='user', cascade="all, delete-orphan", lazy="joined")
+    favorites = db.relationship("Favorite", back_populates="user", cascade="all, delete-orphan", lazy="joined")
     restaurants = db.relationship("Restaurant", back_populates='owner', lazy="joined")
 
 

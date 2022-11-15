@@ -27,6 +27,14 @@ class Restaurant(db.Model):
     #Relationships
     owner = db.relationship("User", lazy="joined")
     reviews = db.relationship("Review", lazy="joined", cascade="all, delete-orphan")
+    reservations = db.relationship("Reservation", back_populates="restaurant", lazy="joined", cascade="all, delete-orphan")
+    favorites = db.relationship("Favorite", back_populates="restaurant", lazy="joined", cascade="all, delete-orphan")
+
+    def calc_rating(self):
+        if len(self.reviews):
+            return sum([review.star_rating for review in self.reviews]) / len(self.reviews)
+        return 0
+
 
     def to_dict(self):
         return {
@@ -45,5 +53,5 @@ class Restaurant(db.Model):
             'zip_code': self.zip_code,
             'open_time': self.open_time,
             'closing_time': self.closing_time,
-            'preview_img_url': self.preview_img_url
+            'preview_img_url': self.preview_img_url,
         }
