@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     # Relationships will go here
-    # Reviews and Ratings relationship
+    reviews = db.relationship("Review", back_populates="user", cascade="all, delete-orphan", lazy="joined")
     # Reservations Relationship
     # Favorites relationship
     restaurants = db.relationship("Restaurant", back_populates='owner', lazy="joined")

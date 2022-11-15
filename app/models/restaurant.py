@@ -26,3 +26,24 @@ class Restaurant(db.Model):
 
     #Relationships
     owner = db.relationship("User", lazy="joined")
+    reviews = db.relationship("Review", lazy="joined", cascade="all, delete-orphan")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name':self.name,
+            'owner_id': self.owner_id,
+            'type': self.type,
+            'url_slug': self.url_slug,
+            'rating': self.rating,
+            'price_range': self.price_range,
+            'about': self.about,
+            'phone_num': self.phone_num,
+            'website_url': self.website_url,
+            'address_line': self.address_line,
+            'city': self.city,
+            'zip_code': self.zip_code,
+            'open_time': self.open_time,
+            'closing_time': self.closing_time,
+            'preview_img_url': self.preview_img_url
+        }
