@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
     # Reviews and Ratings relationship
     # Reservations Relationship
     # Favorites relationship
-    # Restaurants relationship
+    restaurants = db.relationship("Restaurant", back_populates='owner', lazy="joined")
 
 
     @property
