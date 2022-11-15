@@ -29,6 +29,7 @@ class Restaurant(db.Model):
     reviews = db.relationship("Review", lazy="joined", cascade="all, delete-orphan")
     reservations = db.relationship("Reservation", back_populates="restaurant", lazy="joined", cascade="all, delete-orphan")
     favorites = db.relationship("Favorite", back_populates="restaurant", lazy="joined", cascade="all, delete-orphan")
+    images = db.relationship("Image", lazy="joined", cascade="all, delete-orphan")
 
     def calc_rating(self):
         if len(self.reviews):
@@ -43,7 +44,7 @@ class Restaurant(db.Model):
             'owner_id': self.owner_id,
             'type': self.type,
             'url_slug': self.url_slug,
-            'rating': self.rating,
+            'rating': self.calc_rating(),
             'price_range': self.price_range,
             'about': self.about,
             'phone_num': self.phone_num,
@@ -54,4 +55,5 @@ class Restaurant(db.Model):
             'open_time': self.open_time,
             'closing_time': self.closing_time,
             'preview_img_url': self.preview_img_url,
+            'images': [image.url for image in self.images]
         }
