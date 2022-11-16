@@ -22,7 +22,7 @@ def seed_images():
     plume3 = Image(
         restaurant_id=1, url='',)
 
-    db.session.add(demo)
+    db.session.add_all([])
 
     db.session.commit()
 

@@ -1,7 +1,7 @@
 from app.models import db, Review, environment, SCHEMA
 
 
-# Adds reviews to restaurants
+# Adds reviews seed data
 def seed_reviews():
     demo = Review(
         user_id=1, restaurant_id=1, star_rating= 4, review='Food was tasty! Definitely coming back')
