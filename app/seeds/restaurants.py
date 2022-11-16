@@ -29,35 +29,83 @@ def seed_restaurants():
         open_time=time(hour=16), closing_time=time(hour=22), neighborhood='Fauborg Marigny', preview_img_url=''
         )
     seattle1 = Restaurant(
-        name='Paladar 511', type='Italian', url_slug='paladar-511-new-orleans', rating=0, price_range='$$',
+        name='Nishino', type='Japanese', url_slug='nishino-seattle', rating=0, price_range='$$$',
         about='Its a neighborhood restaurant for the times, where seasonal cuisine reigns supreme. The menu features inventive pizzas, housemade pastas, gulf seafood and enough choices to satisfy everyone in your party. ',
-        phone_num='5045096782', website_url='https://www.paladar511.com/', address_line='511 Marigny St', city='New Orleans', state='LA', zip_code='70117',
-        open_time=time(hour=16), closing_time=time(hour=22), neighborhood='Fauborg Marigny', preview_img_url=''
+        phone_num='2063225800', website_url='https://nishinorestaurant.com/', address_line='3130 E Madison St', city='Seattle', state='WA', zip_code='98112',
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Washington Park', preview_img_url=''
         )
     seattle2 = Restaurant(
-        name='Paladar 511', type='Italian', url_slug='paladar-511-new-orleans', rating=0, price_range='$$',
-        about='Its a neighborhood restaurant for the times, where seasonal cuisine reigns supreme. The menu features inventive pizzas, housemade pastas, gulf seafood and enough choices to satisfy everyone in your party. ',
-        phone_num='5045096782', website_url='https://www.paladar511.com/', address_line='511 Marigny St', city='New Orleans', state='LA', zip_code='70117',
-        open_time=time(hour=16), closing_time=time(hour=22), neighborhood='Fauborg Marigny', preview_img_url=''
+        name='Oddfellows Cafe + Bar', type='American', url_slug='oddfellows-cafe-and-bar-seattle', rating=0, price_range='$',
+        about="Oddfellows Café + Bar is an all-day, all-night café and bar that serves simple, fresh food without pretense. We have great coffee from Middle Fork Coffee Roasters and elevated cocktails.",
+        phone_num='2063250807', website_url='https://www.oddfellowscafe.com/', address_line='1525 10th Ave', city='Seattle', state='WA', zip_code='98122',
+        open_time=time(hour=14), closing_time=time(hour=21), neighborhood='Capital Hill', preview_img_url=''
         )
     seattle3 = Restaurant(
-        name='Paladar 511', type='Italian', url_slug='paladar-511-new-orleans', rating=0, price_range='$$',
-        about='Its a neighborhood restaurant for the times, where seasonal cuisine reigns supreme. The menu features inventive pizzas, housemade pastas, gulf seafood and enough choices to satisfy everyone in your party. ',
-        phone_num='5045096782', website_url='https://www.paladar511.com/', address_line='511 Marigny St', city='New Orleans', state='LA', zip_code='70117',
-        open_time=time(hour=16), closing_time=time(hour=22), neighborhood='Fauborg Marigny', preview_img_url=''
+        name='Kamp Social House', type='Caribbean', url_slug='kamp-social-house-seattle', rating=0, price_range='$',
+        about="We started Kamp Social House with the hopes of being the go-to neighborhood spot with a little something for everyone. Our menus highlight what is fresh, seasonal and local.",
+        phone_num='2067081296', website_url='https://www.kampseattle.com/', address_line='2800 E Madison St', city='Seattle', state='WA', zip_code='98112',
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Madison', preview_img_url=''
         )
     seattle4 = Restaurant(
-        name='Paladar 511', type='Italian', url_slug='paladar-511-new-orleans', rating=0, price_range='$$',
-        about='Its a neighborhood restaurant for the times, where seasonal cuisine reigns supreme. The menu features inventive pizzas, housemade pastas, gulf seafood and enough choices to satisfy everyone in your party. ',
-        phone_num='5045096782', website_url='https://www.paladar511.com/', address_line='511 Marigny St', city='New Orleans', state='LA', zip_code='70117',
-        open_time=time(hour=16), closing_time=time(hour=22), neighborhood='Fauborg Marigny', preview_img_url=''
+        name='', type='', url_slug='paladar-511-seattle', rating=0, price_range='$$',
+        about='',
+        phone_num='5045096782', website_url='https://www.paladar511.com/', address_line='', city='Seattle', state='WA', zip_code='70117',
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='', preview_img_url=''
+        )
+    la1 = Restaurant(
+        name='Lasita', type='Filipino', url_slug='lasita-los-angeles', rating=0, price_range='$$',
+        about="Lasita is a casual Los Angeles restaurant and natural wine bar located in Chinatown’s Far East Plaza, where we focus on Filipino rotisserie and all things natty.",
+        phone_num='2134436163', website_url='https://www.lasita-la.com/', address_line='727 N Broadway #120', city='Lost Angeles', state='CA', zip_code='90012',
+        open_time=time(hour=16), closing_time=time(hour=22), neighborhood='Chinatown', preview_img_url=''
+        )
+    la2 = Restaurant(
+        name='Night+Market WeHo', type='Thai', url_slug='night-market-weho-lost-angeles', rating=0, price_range='$$',
+        about="Chef Kris Yenbamroong likes to think of the food at NIGHT + MARKET as “LA-Thai”. Meaning, you’ll see the classic Thai staples like Pad Thai and Pad See Ew alongside dishes inspired by his SoCal upbringing: think towering Fried Chicken Sandwiches and umami-rich Pork Toro. ",
+        phone_num='3102759724', website_url='https://www.nightmarketsong.com/nm-weho/', address_line='9043 Sunset Blvd', city='West Hollywood', state='CA', zip_code='90069',
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='', preview_img_url=''
+        )
+    la3 = Restaurant(
+        name='Guelaguetza', type='Mexican', url_slug='guelaguetza-los-angeles', rating=0, price_range='$$',
+        about="Guelaguetza is a James Beard award winning restaurant, first opening its doors in 1994. Since then, our goal has been to showcase the best of our families recipes and stay authentically true to Oaxacan ingredients. Guelaguetza’s mission is for all of its patrons to live and experience Oaxaca rich culinary traditions through its dishes.",
+        phone_num='2134270608', website_url='https://www.ilovemole.com/', address_line='3014 W Olympic Blvd', city='Los Angeles', state='CA', zip_code='90006',
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Koreatown', preview_img_url=''
+        )
+    la4 = Restaurant(
+        name='Chulita', type='Mexican', url_slug='chulita-los-angeles', rating=0, price_range='$$',
+        about="Chulita is an Alta California-style modern Mexican restaurant and mezcal/tequila bar in the heart of Venice, bringing botanas y mezcales or Mexican drinking food to Rose Avenue.",
+        phone_num='3103924440', website_url='https://www.chulita.com/', address_line='533 Rose Ave', city='Venice', state='CA', zip_code='90291',
+        open_time=time(hour=17), closing_time=time(hour=21), neighborhood='Venice', preview_img_url=''
+        )
+    detroit1 = Restaurant(
+        name='Mink', type='Seafood', url_slug='mink-detroit', rating=0, price_range='$$$',
+        about='Modeled after Japanese Izakayas, Mink is a drinking and dining destination in the heart of Corktown, Detroit. It is an intimate community gathering place with a focus on impeccable sourcing of low intervention ingredients in a casual environment.',
+        phone_num='3133510771', website_url='https://www.minkdetroit.com/', address_line='1701 Trumbull Ave', city='Detroit', state='MI', zip_code='48216',
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Corktown', preview_img_url=''
+        )
+    detroit2 = Restaurant(
+        name='Leila', type='Middle Eastern', url_slug='leila-detroit', rating=0, price_range='$$',
+        about='Leila is decidedly contemporary, with a bigger emphasis on mezze—small plates meant to be shared.',
+        phone_num='3138168100', website_url='https://www.leiladetroit.com/', address_line='1245 Griswold St', city='Detroit', state='MI', zip_code='48226',
+        open_time=time(hour=17), closing_time=time(hour=23), neighborhood='Capital Park', preview_img_url=''
+        )
+    detroit3 = Restaurant(
+        name='Daebak Korean BBQ', type='Korean', url_slug='daebak-korean-bbq-detroit', rating=0, price_range='$$',
+        about='Daebak Korean BBQ, located in Southfield Michigan, is a family-run modern Korean barbecue restaurant established in 2018.',
+        phone_num='2489968922', website_url='https://daebakkbbq.com/', address_line='27566 Northwestern Hwy', city='Detroit', state='MI', zip_code='48034',
+        open_time=time(hour=17), closing_time=time(hour=21), neighborhood='Metro Detroit', preview_img_url=''
+        )
+    detroit4 = Restaurant(
+        name='Voyager', type='Seafood', url_slug='voyager-detroit', rating=0, price_range='$$',
+        about="A menu fit for the coast with drinks to match. Voyager features seasonal, sustainable, wild-caught & responsibly farmed seafood from near & far. ",
+        phone_num='2486584999', website_url='https://www.voyagerferndale.com/', address_line='600 Vester St.', city='Detroit', state='MI', zip_code='48220',
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Ferndale', preview_img_url=''
         )
 
 
-    db.session.add_all([nola1, nola2, nola2, nola4])
+    db.session.add_all([nola1, nola2, nola3, nola4])
     db.session.add_all([seattle1, seattle2, seattle3, seattle4])
     db.session.add_all([la1, la2, la3, la4])
-    db.session.add_all([ny1, ny2, ny3, ny4])
+    db.session.add_all([detroit1, detroit2, detroit3, detroit4])
     db.session.commit()
 
 
