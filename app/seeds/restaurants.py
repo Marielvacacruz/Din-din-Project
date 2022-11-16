@@ -47,10 +47,10 @@ def seed_restaurants():
         open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Madison', preview_img_url=''
         )
     seattle4 = Restaurant(
-        name='', type='', url_slug='paladar-511-seattle', rating=0, price_range='$$',
-        about='',
-        phone_num='5045096782', website_url='https://www.paladar511.com/', address_line='', city='Seattle', state='WA', zip_code='70117',
-        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='', preview_img_url=''
+        name='Maximilien', type='French', url_slug='paladar-511-seattle', rating=0, price_range='$$$',
+        about="Maximilien has the wine and dine playbook on lockdown: perfect views of the Seattle waterfront and seasonally-inspired, top-notch French fare.",
+        phone_num='2066827270', website_url='https://www.maximilienrestaurant.com/', address_line='81a Pike Street', city='Seattle', state='WA', zip_code='98101',
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Pike Place Market', preview_img_url=''
         )
     la1 = Restaurant(
         name='Lasita', type='Filipino', url_slug='lasita-los-angeles', rating=0, price_range='$$',
@@ -62,7 +62,7 @@ def seed_restaurants():
         name='Night+Market WeHo', type='Thai', url_slug='night-market-weho-lost-angeles', rating=0, price_range='$$',
         about="Chef Kris Yenbamroong likes to think of the food at NIGHT + MARKET as “LA-Thai”. Meaning, you’ll see the classic Thai staples like Pad Thai and Pad See Ew alongside dishes inspired by his SoCal upbringing: think towering Fried Chicken Sandwiches and umami-rich Pork Toro. ",
         phone_num='3102759724', website_url='https://www.nightmarketsong.com/nm-weho/', address_line='9043 Sunset Blvd', city='West Hollywood', state='CA', zip_code='90069',
-        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='', preview_img_url=''
+        open_time=time(hour=17), closing_time=time(hour=22), neighborhood='West Hollywood', preview_img_url=''
         )
     la3 = Restaurant(
         name='Guelaguetza', type='Mexican', url_slug='guelaguetza-los-angeles', rating=0, price_range='$$',
