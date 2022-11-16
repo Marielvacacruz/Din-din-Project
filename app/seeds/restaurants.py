@@ -2,7 +2,7 @@ from app.models import db, Restaurant, environment, SCHEMA
 from datetime import time
 
 
-# Adds a demo user, you can add other users here if you want
+# Adds 4 restaurants per city (new orleans, seattle, los angeles, new york), 16 total
 def seed_restaurants():
     nola1 = Restaurant(
         name='Sylvain', type='American', url_slug='sylvain-new-orleans', rating=0, price_range='$$',

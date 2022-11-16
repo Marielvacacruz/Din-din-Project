@@ -14,7 +14,7 @@ def seed_users():
     fave5 = Favorite(
         user_id=1, restaurant_id=15)
 
-    db.session.add(fave1, fave2, fave3, fave4, fave5)
+    db.session.add_all([fave1, fave2, fave3, fave4, fave5])
     db.session.commit()
 
 
