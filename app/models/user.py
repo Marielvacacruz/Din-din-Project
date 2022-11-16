@@ -13,10 +13,10 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(80), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    phone_number = db.Column(db.String(12),  nullable=False,)
+    phone_number = db.Column(db.String(30),  nullable=False,)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    # Relationships will go here
+    # Relationships
     reviews = db.relationship("Review", back_populates="user", cascade="all, delete-orphan", lazy="joined")
     reservations = db.relationship("Reservation", back_populates='user', cascade="all, delete-orphan", lazy="joined")
     favorites = db.relationship("Favorite", back_populates="user", cascade="all, delete-orphan", lazy="joined")

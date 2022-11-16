@@ -22,6 +22,7 @@ class Restaurant(db.Model):
     zip_code = db.Column(db.String(5), nullable=False)
     open_time = db.Column(db.Time, nullable=False)
     closing_time = db.Column(db.Time, nullable=False)
+    neighborhood = db.Column(db.String(100), nullable=False)
     preview_img_url = db.Column(db.String(250))
 
     #Relationships
