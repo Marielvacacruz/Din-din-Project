@@ -2,7 +2,7 @@ from app.models import db, Favorite, environment, SCHEMA
 
 
 # Adds a demo user, you can add other users here if you want
-def seed_users():
+def seed_favorites():
     fave1 = Favorite(
         user_id=1, restaurant_id=2)
     fave2 = Favorite(

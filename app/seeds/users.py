@@ -8,13 +8,13 @@ def seed_users():
     michelle = User(
         first_name='Michelle', last_name='Landry', email='michelle@aa.io', phone_number='4524441234',  password='apple123')
     bobbie = User(
-        username='Bobbie', last_name='Mills', email='bobbie@aa.io', phone_number='2068993435', password='banana456')
+        first_name='Bobbie', last_name='Mills', email='bobbie@aa.io', phone_number='2068993435', password='banana456')
     aaron = User(
-        username='Aaron', last_name='Scott', email='aaron@aa.io', phone_number='2068778343', password='kiwi789')
+        first_name='Aaron', last_name='Scott', email='aaron@aa.io', phone_number='2068778343', password='kiwi789')
     jose = User(
-        username='Jose', last_name='Vasquez', email='jose@aa.io', phone_number='20676765434', password='taco789')
+        first_name='Jose', last_name='Vasquez', email='jose@aa.io', phone_number='20676765434', password='taco789')
     sarai = User(
-        username='Sarai', last_name='Cruz', email='sarai@aa.io', phone_number='2064456738', password='strawberry123')
+        first_name='Sarai', last_name='Cruz', email='sarai@aa.io', phone_number='2064456738', password='strawberry123')
 
     db.session.add(demo)
     db.session.add(michelle)
