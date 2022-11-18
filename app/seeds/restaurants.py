@@ -11,7 +11,7 @@ def seed_restaurants():
         open_time=time(hour=16), closing_time=time(hour=23), neighborhood='French Quarter', preview_img_url='https://res.cloudinary.com/dyobydo5h/image/upload/v1668619510/Din%20Din%20/1600x1600_w5k3wr.jpg'
         )
     nola2 = Restaurant(
-        name='Besame', type='Spanish Latin Caribbean', url_slug='besame-new-orleans', rating=0, price_range='$',
+        name='Besame', type='Latin, Caribbean', url_slug='besame-new-orleans', rating=0, price_range='$',
         about='Besame is a tapas style Latin American restaurant and lounge featuring cuisines from South America, Mexico and the Caribbean paired with crafted cocktails and South American wines.',
         phone_num='5043080880', website_url='https://besame-Nola.com/', address_line='110 S Rampart', city='New Orleans', state='LA', zip_code='70112',
         open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Arts District', preview_img_url='https://res.cloudinary.com/dyobydo5h/image/upload/v1668620385/Din%20Din%20/1600x1600_qmlmzg.jpg'
