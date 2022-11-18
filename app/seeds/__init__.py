@@ -28,10 +28,10 @@ def seed():
         undo_reservations()
         undo_restaurants()
     seed_users()
+    seed_restaurants()
     seed_favorites()
     seed_images()
     seed_reservations()
-    seed_restaurants()
     seed_reviews()
 
 
