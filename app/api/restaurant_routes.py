@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
-from ..models import Restaurant
+from ..models import Restaurant, db
+from flask_login import login_required, current_user
 
 restaurant_routes = Blueprint('restaurants', __name__)
 
@@ -27,4 +28,37 @@ def get_restaurant_details(url_slug):
             }), 404
     return restaurant.to_dict(), 200
 
-# Todo : Create and Delete Restaurant
+# Todo : Create Restaurant
+
+
+# #Delete Restaurant
+@restaurant_routes.route('/<int:restaurantId>', methods=['DELETE'])
+@login_required
+def delete_restaurant(restaurantId):
+    """
+    Delete a restaurant by id
+    current_user must be owner
+    """
+    restaurant = Restaurant.query.get(restaurantId)
+    #check if restaurant exists
+    if restaurant is None:
+        return jsonify({
+            "message": "Restaurant does not exist",
+            "status_code":  404
+            }), 404
+
+    #check if current user owns restaurant
+    if restaurant.owner_id != current_user.id:
+        return jsonify({
+            "message": "Forbidden",
+            "status_code":  403
+            }), 403
+
+    #delete restaurant
+    db.session.delete(restaurant)
+    db.session.commit()
+
+    return jsonify({
+            "message": "Successfully deleted restaurant",
+            "status_code":  200
+            }), 200

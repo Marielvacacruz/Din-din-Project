@@ -57,7 +57,21 @@ export const getRestaurant = (restaurant_url) => async (dispatch) => {
     return res;
 };
 
-//TODO: ADD AND DELETE THUNK
+
+//TODO: ADD Restaurant thunk
+
+//DELETE Restaurant
+export const deleteRestaurant = (restaurantId) => async(dispatch) => {
+    const res = await fetch(`/api/restaurants/${restaurantId}`, {
+        method: 'DELETE'
+    });
+    const response = await res.json();
+    if(res.status === 200){
+        dispatch(removeRestaurant(restaurantId));
+    }
+    return response;
+};
+
 
 //Reducer
 export default function restaurantReducer(state = {restaurants: {}, urls: {}}, action){
@@ -86,7 +100,7 @@ export default function restaurantReducer(state = {restaurants: {}, urls: {}}, a
                 if (newState.urls[url_slug] === action.restaurantId)
                     delete newState.urls[url_slug];
             break;
-            
+
         default:
             break;
     }
