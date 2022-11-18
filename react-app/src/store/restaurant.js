@@ -58,7 +58,51 @@ export const getRestaurant = (restaurant_url) => async (dispatch) => {
 };
 
 
-//TODO: ADD Restaurant thunk
+//Add new Restaurant
+export const createRestaurant = (restaurant) => async(dispatch) => {
+    const {
+        name,
+        type,
+        url_slug,
+        price_range,
+        about,
+        phone_num,
+        website_url,
+        address_line,
+        city,
+        state,
+        zip_code,
+        open_time,
+        closing_time,
+        neighborhood,
+        preview_img_url
+    } = restaurant
+
+    const res = await fetch(`/api/restaurant`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            name,
+            type,
+            url_slug,
+            price_range,
+            about,
+            phone_num,
+            website_url,
+            address_line,
+            city,
+            state,
+            zip_code,
+            open_time,
+            closing_time,
+            neighborhood,
+            preview_img_url
+        }),
+    });
+    const data = await res.json();
+    dispatch(addRestaurant(data));
+    return res;
+};
 
 //DELETE Restaurant
 export const deleteRestaurant = (restaurantId) => async(dispatch) => {

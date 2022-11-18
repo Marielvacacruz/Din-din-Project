@@ -55,7 +55,7 @@ def create_restaurant():
             address_line = form.data['address_line'],
             city = form.data['city'],
             state = form.data['state'],
-            zip_code = form.data['zip'],
+            zip_code = form.data['zip_code'],
             open_time = form.data['open_time'],
             closing_time = form.data['closing_time'],
             neighborhood = form.data['neighborhood'],
