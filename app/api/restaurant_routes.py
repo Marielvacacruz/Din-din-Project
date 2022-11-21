@@ -16,7 +16,7 @@ def get_restaurants_by_city(city):
     return jsonify({'restaurants':[restaurant.to_dict() for restaurant in restaurants]}), 200
 
 
-@restaurant_routes.route('/<path:url_slug>')
+@restaurant_routes.route('/<path:city>/<path:url_slug>')
 def get_restaurant_details(url_slug):
     """
     GET Single Restaurant by url slug

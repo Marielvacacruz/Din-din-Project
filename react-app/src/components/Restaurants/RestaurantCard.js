@@ -1,6 +1,12 @@
 function RestaurantCard({restaurant}){
+
+     //if restaurant card clicked, send user to restaurant details
+     const handleClick = (city, url_slug) => {
+        history.push(`/restaurants/${city}/${url_slug}`)
+    };
+
     return(
-        <div className="restaurant-card">
+        <div className="restaurant-card" onClick={() => handleClick(restaurant.city, restaurant.url_slug)}>
              <div className="thumbnail-container">
                 <img src={restaurant.preview_img_url}
                 alt="restaurant image"
