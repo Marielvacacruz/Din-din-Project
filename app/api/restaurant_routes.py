@@ -7,16 +7,16 @@ from .auth_routes import validation_errors_to_error_messages
 restaurant_routes = Blueprint('restaurants', __name__)
 
 
-@restaurant_routes.route('/<path:city>')
-def get_restaurants_by_city(city):
+@restaurant_routes.route('/<path:state>')
+def get_restaurants_by_state(state):
     """
     GET restaurants by city
     """
-    restaurants = Restaurant.query.filter(Restaurant.city == city).all()
+    restaurants = Restaurant.query.filter(Restaurant.state == state).all()
     return jsonify({'restaurants':[restaurant.to_dict() for restaurant in restaurants]}), 200
 
 
-@restaurant_routes.route('/<path:city>/<path:url_slug>')
+@restaurant_routes.route('/<path:state>/<path:url_slug>')
 def get_restaurant_details(url_slug):
     """
     GET Single Restaurant by url slug

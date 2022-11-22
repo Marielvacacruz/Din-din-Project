@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import RestaurantList from './components/Restaurants/RestaurantList';
@@ -36,7 +36,7 @@ function App() {
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>
-        <Route path='/restaurants/:city' exact={true}>
+        <Route path='/restaurants/:state' exact={true}>
           <RestaurantList/>
         </Route>
       </Switch>

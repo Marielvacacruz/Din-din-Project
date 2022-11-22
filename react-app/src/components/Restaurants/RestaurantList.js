@@ -2,18 +2,18 @@ import {useSelector, useDispatch} from "react-redux";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect } from "react";
 import {useParams} from 'react-router-dom';
-import { getRestaurantsByCity } from "../../store/restaurant";
+import { getRestaurantsByState } from "../../store/restaurant";
 
 function RestaurantList(){
-    const restaurants = useSelector((state) => (state.restaurants.restaurants));
-    const restaurantCard = Object.values(restaurants).map((restaurant) => <RestaurantCard key={restaurant.id} restaurant={restaurant}/>)
+    const restaurants = useSelector((state) => Object.values(state.restaurant.restaurants));
+    const restaurantCard = restaurants.map((restaurant) => <RestaurantCard key={restaurant.id} restaurant={restaurant}/>)
 
     const dispatch = useDispatch();
-    const {city} = useParams();
+    const {state} = useParams();
 
     useEffect(() => {
-        dispatch(getRestaurantsByCity(city))
-    }, [dispatch, city]);
+        dispatch(getRestaurantsByState(state))
+    }, [dispatch, state]);
 
     return(
         <div className='restaurant-page'>

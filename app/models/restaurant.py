@@ -52,9 +52,11 @@ class Restaurant(db.Model):
             'website_url': self.website_url,
             'address_line': self.address_line,
             'city': self.city,
+            'state': self.state,
             'zip_code': self.zip_code,
-            'open_time': self.open_time,
-            'closing_time': self.closing_time,
+            'open_time': self.open_time.strftime("%H:%M"),
+            'closing_time': self.closing_time.strftime("%H:%M"),
+            'neighborhood': self.neighborhood,
             'preview_img_url': self.preview_img_url,
             'images': [image.url for image in self.images]
         }

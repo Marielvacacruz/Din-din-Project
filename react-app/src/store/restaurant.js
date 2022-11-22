@@ -36,8 +36,8 @@ const removeRestaurant = (restaurantId) => {
 //thunks
 
 //get all restaurants by city
-export const getRestaurantsByCity = (city) => async (dispatch) => {
-    const res = await fetch(`/api/restaurants/${city}`);
+export const getRestaurantsByState = (state) => async (dispatch) => {
+    const res = await fetch(`/api/restaurants/${state}`);
 
     if(res.ok){
         const data = await res.json();
@@ -47,8 +47,8 @@ export const getRestaurantsByCity = (city) => async (dispatch) => {
 };
 
 //get details of a res by url slug
-export const getRestaurant = (city, restaurant_url) => async (dispatch) => {
-    const res = await fetch(`/api/restaurants/${city}/${restaurant_url}`);
+export const getRestaurant = (state, restaurant_url) => async (dispatch) => {
+    const res = await fetch(`/api/restaurants/${state}/${restaurant_url}`);
 
     if(res.ok){
         const data = await res.json();
@@ -118,7 +118,7 @@ export const deleteRestaurant = (restaurantId) => async(dispatch) => {
 
 
 //Reducer
-export default function restaurantReducer(state = {restaurants: {}, urls: {}}, action){
+export default function restaurantReducer(state = { restaurants: {}, urls: {} }, action){
     let newState = {...state};
     switch(action.type){
         case SET_RESTAURANTS:
@@ -141,8 +141,8 @@ export default function restaurantReducer(state = {restaurants: {}, urls: {}}, a
         case DELETE_RESTAURANT:
             delete newState.restaurants[action.restaurantId];
             for(let url in newState.urls)
-                if (newState.urls[url_slug] === action.restaurantId)
-                    delete newState.urls[url_slug];
+                if (newState.urls[url] === action.restaurantId)
+                    delete newState.urls[url];
             break;
 
         default:
