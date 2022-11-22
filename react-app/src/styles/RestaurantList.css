@@ -1,0 +1,6 @@
+.restaurant-list-container {
+    grid-template-columns: repeat(5,minmax(200px,1fr));
+    width: auto;
+    display: grid;
+    grid-column-gap: 5px;
+}

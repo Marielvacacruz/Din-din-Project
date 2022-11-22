@@ -14,8 +14,8 @@ function RestaurantCard({restaurant}){
         <div className="restaurant-card">
              <div className="thumbnail-container">
                 <img src={restaurant.preview_img_url}
-                alt="restaurant image"
-                className="preview-image"
+                alt="restaurant interior"
+                className="preview-image-thumbnail"
                 />
             </div>
 
