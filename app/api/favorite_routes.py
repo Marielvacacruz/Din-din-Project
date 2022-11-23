@@ -4,6 +4,7 @@ from ..models import db, Favorite
 
 favorite_routes = Blueprint('favorites', __name__)
 
+#TODO: complete favorite routes 
 @favorite_routes('')
 @login_required
 def get_users_favorites():

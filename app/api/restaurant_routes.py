@@ -19,7 +19,7 @@ def get_restaurants_by_state(state):
 @restaurant_routes.route('/<path:state>/<path:url_slug>')
 def get_restaurant_details(url_slug):
     """
-    GET Single Restaurant by url slug
+    GET Restaurant details by url slug
     """
     restaurant = Restaurant.query.filter(Restaurant.url_slug == url_slug).first()
 
@@ -30,7 +30,7 @@ def get_restaurant_details(url_slug):
             }), 404
     return restaurant.to_dict(), 200
 
-#Create a Restaurant
+#Create a Restaurant (NEEDS TESTING)
 @restaurant_routes.route('/', methods=['POST'])
 @login_required
 def create_restaurant():
@@ -67,7 +67,7 @@ def create_restaurant():
     return {"errors":validation_errors_to_error_messages(form.errors)}, 400
 
 
-# #Delete Restaurant
+# #Delete Restaurant(NEEDS TESTING)
 @restaurant_routes.route('/<int:restaurantId>', methods=['DELETE'])
 @login_required
 def delete_restaurant(restaurantId):
