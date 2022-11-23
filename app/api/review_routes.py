@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import current_user, login_required
-from ..models import Review, db
+from ..models import Review, db, Restaurant
 from .auth_routes import validation_errors_to_error_messages
+from ..forms import ReviewForm
 
 review_routes = Blueprint('reviews', __name__)
 
@@ -13,6 +14,17 @@ def user_reviews():
     """
     reviews = [rev.to_dict() for rev in current_user.reviews]
     return jsonify({'reviews': reviews}), 200
+
+
+@review_routes.route('/<int:restaurantId>')
+def restaurant_reviews(restaurantId):
+    """
+    Gets all reviews belonging to a restaurant
+    """
+    restaurant = Restaurant.query.filter(Restaurant.id == restaurantId).first()
+
+    if restaurant is None:
+        return jsonify({"message": 'Restaurant does not exist', "status_code": '404'}), 404
 
 
 @review_routes.route('/', methods=['POST'])
