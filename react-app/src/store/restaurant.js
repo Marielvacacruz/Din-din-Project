@@ -122,11 +122,12 @@ export default function restaurantReducer(state = { restaurants: {}, urls: {} },
     let newState = {...state};
     switch(action.type){
         case SET_RESTAURANTS:
+            let restaurantsByState = {restaurants: {}, urls: {}};
             action.restaurants.forEach((restaurant) => {
-                newState.restaurants[restaurant.id] = restaurant;
-                newState.urls[restaurant.url_slug] = restaurant.id;
+                restaurantsByState.restaurants[restaurant.id] = restaurant;
+                restaurantsByState.urls[restaurant.url_slug] = restaurant.id;
             });
-            break;
+            return restaurantsByState;
 
         case SET_RESTAURANT:
             newState.restaurants[action.restaurant.id] = action.restaurant;
@@ -146,7 +147,6 @@ export default function restaurantReducer(state = { restaurants: {}, urls: {} },
             break;
 
         default:
-            break;
-    }
-    return newState;
+            return newState;
+    };
 };

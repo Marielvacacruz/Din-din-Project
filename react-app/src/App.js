@@ -7,6 +7,8 @@ import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import RestaurantList from './components/Restaurants/RestaurantList';
+import Footer from './components/Navigation/Footer';
+import HomePage from './components/HomePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,12 +36,13 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage/>
         </Route>
         <Route path='/restaurants/:state' exact={true}>
           <RestaurantList/>
         </Route>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }

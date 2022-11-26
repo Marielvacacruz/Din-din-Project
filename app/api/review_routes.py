@@ -6,7 +6,7 @@ from ..forms import ReviewForm
 
 review_routes = Blueprint('reviews', __name__)
 
-@review_routes('/user')
+@review_routes.route('/user')
 @login_required
 def user_reviews():
     """
