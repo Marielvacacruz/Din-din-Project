@@ -45,8 +45,8 @@ const deleteReview = (reviewId) => {
 //thunks
 
 //get all restaurant reviews
-export const getRestaurantReviews = (restaurantId) => async (dispatch) => {
-    const res = await fetch(`/api/reviews/${restaurantId}`);
+export const getRestaurantReviews = (restaurant_url) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${restaurant_url}`);
 
     if(res.ok){
         const data = await res.json();

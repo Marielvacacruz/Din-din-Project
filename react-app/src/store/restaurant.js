@@ -48,7 +48,7 @@ export const getRestaurantsByState = (state) => async (dispatch) => {
 
 //get details of a res by url slug
 export const getRestaurant = (state, restaurant_url) => async (dispatch) => {
-    const res = await fetch(`/api/restaurants/${state}/${restaurant_url}`);
+    const res = await fetch(`/api/restaurants/${state}/${restaurant_url}/`);
 
     if(res.ok){
         const data = await res.json();

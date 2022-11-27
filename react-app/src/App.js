@@ -7,6 +7,7 @@ import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import RestaurantList from './components/Restaurants/RestaurantList';
+import RestaurantPage from './components/Restaurants/RestaurantDetails';
 import Footer from './components/Navigation/Footer';
 import HomePage from './components/HomePage';
 
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route path='/restaurants/:state' exact={true}>
           <RestaurantList/>
+        </Route>
+        <Route path='/restaurants/:state/:restaurant_url' exact={true}>
+          <RestaurantPage/>
         </Route>
       </Switch>
       <Footer/>

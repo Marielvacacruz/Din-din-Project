@@ -16,12 +16,12 @@ def get_restaurants_by_state(state):
     return jsonify({'restaurants':[restaurant.to_dict() for restaurant in restaurants]}), 200
 
 # TODO: Testing
-@restaurant_routes.route('/<path:state>/<path:url_slug>')
-def get_restaurant_details(url_slug):
+@restaurant_routes.route('/<path:state>/<path:restaurant_url>')
+def get_restaurant_details(restaurant_url):
     """
     GET Restaurant details by url slug
     """
-    restaurant = Restaurant.query.filter(Restaurant.url_slug == url_slug).first()
+    restaurant = Restaurant.query.filter(Restaurant.url_slug == restaurant_url).first()
 
     if restaurant is None:
         return jsonify({

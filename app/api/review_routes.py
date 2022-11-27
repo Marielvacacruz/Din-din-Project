@@ -16,15 +16,18 @@ def user_reviews():
     return jsonify({'reviews': reviews}), 200
 
 
-@review_routes.route('/<int:restaurantId>')
-def restaurant_reviews(restaurantId):
+@review_routes.route('/<path:restaurant_url>')
+def restaurant_reviews(restaurant_url):
     """
     Gets all reviews belonging to a restaurant
     """
-    restaurant = Restaurant.query.filter(Restaurant.id == restaurantId).first()
+    restaurant = Restaurant.query.filter(Restaurant.url_slug == restaurant_url).first()
 
     if restaurant is None:
         return jsonify({"message": 'Restaurant does not exist', "status_code": '404'}), 404
+
+    reviews = [rev.to_dict() for rev in restaurant.reviews]
+    return jsonify({'reviews': reviews}),200
 
 
 @review_routes.route('/', methods=['POST'])
