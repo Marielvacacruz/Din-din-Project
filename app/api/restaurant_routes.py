@@ -16,7 +16,7 @@ def get_restaurants_by_state(state):
     return jsonify({'restaurants':[restaurant.to_dict() for restaurant in restaurants]}), 200
 
 # TODO: Testing
-@restaurant_routes.route('/<path:state>/<path:restaurant_url>')
+@restaurant_routes.route('/<path:restaurant_url>/details')
 def get_restaurant_details(restaurant_url):
     """
     GET Restaurant details by url slug

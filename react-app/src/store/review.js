@@ -135,7 +135,7 @@ export default function reviewReducer(state = {}, action){
 
         case SET_USER_REVIEWS:
             const reviews = {};
-            action.reviews.forEach((review) => {reviews[review.id] = reviews});
+            action.reviews.forEach((review) => {reviews[review.id] = review});
             newState.user = reviews;
             break;
 

@@ -6,13 +6,13 @@ import { getRestaurantReviews } from '../../store/review';
 
 function RestaurantPage(){
     const dispatch = useDispatch();
-    const { state, restaurant_url } = useParams();
+    const { restaurant_url } = useParams();
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        dispatch(getRestaurant(state, restaurant_url))
+        dispatch(getRestaurant(restaurant_url))
         .then(() => dispatch(getRestaurantReviews(restaurant_url)).then(() => setIsLoaded(true)))
-       },[dispatch, restaurant_url, isLoaded, state]);
+       },[dispatch, restaurant_url, isLoaded]);
 
     const restaurant = useSelector((state) => state.restaurant.restaurants[state.restaurant.urls[restaurant_url]]);
     const reviews = useSelector((state) => state.review.restaurant)

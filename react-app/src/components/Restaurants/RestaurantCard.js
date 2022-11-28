@@ -22,7 +22,7 @@ function RestaurantCard({restaurant}){
             <div className="card-details">
                 <Link to={`/restaurants/${restaurant.state}/${restaurant.url_slug}`} className="detail-name">{restaurant.name}</Link>
                 <div>
-                <i class="fa-solid fa-star"></i>
+                <i className="fa-solid fa-star"></i>
                     {restaurant.rating}
                 </div>
                 <p>{restaurant.type}</p>

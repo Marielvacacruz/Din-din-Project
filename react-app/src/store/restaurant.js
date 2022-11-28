@@ -1,5 +1,5 @@
 //constants
-const SET_RESTAURANTS = 'SET_RESTAURANT'
+const SET_RESTAURANTS = 'SET_RESTAURANTS'
 const SET_RESTAURANT = 'SET_RESTAURANT'
 const ADD_RESTAURANT = 'ADD_RESTAURANT'
 const DELETE_RESTAURANT = 'DELETE_RESTAURANT'
@@ -47,11 +47,12 @@ export const getRestaurantsByState = (state) => async (dispatch) => {
 };
 
 //get details of a res by url slug
-export const getRestaurant = (state, restaurant_url) => async (dispatch) => {
-    const res = await fetch(`/api/restaurants/${state}/${restaurant_url}/`);
+export const getRestaurant = (restaurant_url) => async (dispatch) => {
+    const res = await fetch(`/api/restaurants/${restaurant_url}/details`);
 
     if(res.ok){
         const data = await res.json();
+        console.log(data)
         dispatch(setRestaurant(data));
     }
     return res;
@@ -132,7 +133,7 @@ export default function restaurantReducer(state = { restaurants: {}, urls: {} },
         case SET_RESTAURANT:
             newState.restaurants[action.restaurant.id] = action.restaurant;
             newState.urls[action.restaurant.url_slug] = action.restaurant.id;
-            break;
+            return newState;
 
         case ADD_RESTAURANT:
             newState.restaurants[action.restaurant.id] = action.restaurant;

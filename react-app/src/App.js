@@ -10,6 +10,7 @@ import RestaurantList from './components/Restaurants/RestaurantList';
 import RestaurantPage from './components/Restaurants/RestaurantDetails';
 import Footer from './components/Navigation/Footer';
 import HomePage from './components/HomePage';
+import UserProfile from './components/profile/ProfilePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,6 +46,9 @@ function App() {
         <Route path='/restaurants/:state/:restaurant_url' exact={true}>
           <RestaurantPage/>
         </Route>
+        <ProtectedRoute path='/profile'>
+          <UserProfile/>
+        </ProtectedRoute>
       </Switch>
       <Footer/>
     </BrowserRouter>

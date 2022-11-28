@@ -35,5 +35,6 @@ class Review(db.Model):
                 'id':  self.restaurant.id,
                 'name': self.restaurant.name,
                 'url_slug': self.restaurant.url_slug,
+                'state': self.restaurant.state,
             }
         }
