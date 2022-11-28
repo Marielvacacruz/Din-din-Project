@@ -21,11 +21,32 @@ function RestaurantPage(){
 
     return isLoaded && (
         <div className='Restaurant-Page-Container'>
-            <h1>RESTAURANT DETAILS</h1>
-            <div>
-                <h2>{restaurant.name}</h2>
-                <span>{restaurant.rating}</span>
+            <div id='main-info'>
+                <h1>{restaurant.name}</h1>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    {restaurant.rating}
+                </div>
                 <span>{restaurant.type}</span>
+                <span>{restaurant.price_range}</span>
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    {restaurant.neighborhood}
+                </div>
+                <div id='outer-button-container'>
+                    <div id='inner-button-container'>
+                     SAVE BUTTON HERE
+                    </div>
+                </div>
+            </div>
+            <div id='res-image-container'>
+                <div className='Image'>
+                    IMAGE HERE
+                </div>
+            </div>
+            <div id='about'>
+                <h3>About {restaurant.name}</h3>
+                {restaurant.about}
             </div>
             <div id='restaurant-reviews'>
                 <h3>Reviews</h3>
@@ -33,13 +54,36 @@ function RestaurantPage(){
                     Object.keys(reviews).map((reviewId) => {
                         return (
                         <div key={reviewId}>
-                            <span>{reviews[reviewId].star_rating}</span>
+                            <span>{reviews[reviewId].user.first_name}</span>
+                            <span>Overall Rating: {reviews[reviewId].star_rating}</span>
                             <span>{reviews[reviewId].review}</span>
                         </div>
                         );
                       })
                     )
                 }
+            </div>
+            <div id='location-container'>
+                <div id='location-info'>
+                    <h2>{restaurant.name}</h2>
+                    <p>{restaurant.address_line}</p>
+                    <p>{restaurant.city}, {restaurant.state} {restaurant.zip_code}</p>
+                </div>
+                <div id='contact-info'>
+                    <a href='tel: 1+'{...restaurant.phone_num}>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>{restaurant.phone_num}</span>
+                    </a>
+                    {/* <span>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>{restaurant.phone_num}</span>
+                    </span> */}
+                    <a href={restaurant.website_url} target='blank'>
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>{restaurant.website_url}</span>
+                    </a>
+
+                </div>
             </div>
         </div>
     )
