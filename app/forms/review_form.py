@@ -17,4 +17,4 @@ class ReviewForm(FlaskForm):
     star_rating = IntegerField('star_rating', validators=[DataRequired(), NumberRange(min=1, max=5)])
     review = TextAreaField('review', validators=[DataRequired(), Length(max=500)])
     restaurant_id = IntegerField('restaurant_id', validators=[DataRequired(), validate_restaurant])
-    submit = SubmitField('Save')
+    submit = SubmitField('submit')

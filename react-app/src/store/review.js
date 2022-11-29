@@ -140,7 +140,7 @@ export default function reviewReducer(state = {}, action){
             break;
 
         case ADD_REVIEW:
-            newState.new = action.review;
+            newState.user[action.review.id] = action.review;
             break;
 
         case EDIT_REVIEW:
