@@ -31,14 +31,14 @@ const editReview = (review) => {
     return {
         type: EDIT_REVIEW,
         review
-    }
+    };
 }
 
 const deleteReview = (reviewId) => {
     return {
         type: DELETE_REVIEW,
         reviewId
-    }
+    };
 }
 
 
@@ -90,18 +90,22 @@ export const createReview = (review_data) => async(dispatch) => {
 };
 
 //Edit a Review
-export const updateReview = (review, id) => async(dispatch) => {
+export const updateReview = (reviewData, id) => async(dispatch) => {
+    let {star_rating, review} = reviewData
 
     const res = await fetch(`/api/reviews/${id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-          review
+          star_rating,
+          review,
         }),
     });
-    const data = await res.json();
-    dispatch(editReview(data));
-    return res;
+    if(res.ok){
+        const data = await res.json();
+        dispatch(editReview(data));
+    };
+    return res
 
 };
 
@@ -144,7 +148,7 @@ export default function reviewReducer(state = {}, action){
             break;
 
         case EDIT_REVIEW:
-            newState.user[action.review.id] = action.review;
+            newState.edit = action.review;
             break;
 
         case DELETE_REVIEW:

@@ -3,6 +3,7 @@ from flask_login import current_user, login_required
 from ..models import Review, db, Restaurant
 from .auth_routes import validation_errors_to_error_messages
 from ..forms import ReviewForm
+from ..forms import EditReviewForm
 
 review_routes = Blueprint('reviews', __name__)
 
@@ -68,15 +69,17 @@ def update_review(review_id):
     if updated_review.user_id != current_user.id:
         return jsonify({"message": 'Forbidden', "status_code": 403}), 403
 
-    form = ReviewForm()
+    print('ERROR LOOK HERE!!!!',type(request.json['star_rating']))
+
+    form = EditReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
 
-        updated_review.star_rating = form.data['star_rating'] or update_review.star_rating,
-        updated_review.review = form.data['review'] or update_review.review,
+        updated_review.star_rating = int(form.data['star_rating'])
+        updated_review.review = form.data['review']
         db.session.commit()
-        return update_review.to_dict(), 201
+        return updated_review.to_dict(), 201
     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
 
 

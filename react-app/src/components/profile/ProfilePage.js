@@ -17,7 +17,7 @@ function UserProfile(){
                 await dispatch(getUserReviews());
                 setIsLoaded(true);
             })();
-    }, [dispatch, isLoaded]);
+    }, [dispatch, isLoaded,]);
 
     const [userReviews, setUserReviews] = useState(false);
 

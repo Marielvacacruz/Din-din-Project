@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect} from 'react-router-dom';
+import { Redirect, useHistory} from 'react-router-dom';
 import { updateReview } from '../../store/review';
 
 function EditReviewForm({closeModal,reviewId}){
@@ -13,6 +13,7 @@ function EditReviewForm({closeModal,reviewId}){
     const [submit, setSubmit] = useState(false);
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(state => state.session.user);
 
     if(!user) return (<Redirect to='/'/>);
@@ -26,20 +27,12 @@ function EditReviewForm({closeModal,reviewId}){
             star_rating,
             review,
         }
-
         setErrors([]);
 
         return dispatch(updateReview(editedReview, reviewId))
-            .then(async (res) =>{
-                if(res.ok){
-                    dispatch(closeModal());
-                    window.alert("Your edits have been made")
-                };
-            })
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+                .then(closeModal())
+                .then(window.alert('review edits accepted'))
+                .then(history.push('/'))
     };
 
     const exitFromModal = (e) => {
@@ -51,7 +44,7 @@ function EditReviewForm({closeModal,reviewId}){
             <button className="exit-icon" onClick={exitFromModal}>
                 <i className="fa-solid fa-xmark"></i>
             </button>
-            <span className='form-heading'>New Review</span>
+            <span className='form-heading'>Edit Review</span>
             <form onSubmit={handleSubmit} className="review-form">
                 <div>
                     <label htmlFor='star_rating'>Please Rate this restaurant</label>

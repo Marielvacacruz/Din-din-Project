@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {ParentModal} from './Modal';
-impor EditReviewForm from '../reviews/EditReview'
+import EditReviewForm from '../reviews/EditReview'
 
 
 function EditReviewModal({reviewId}){
