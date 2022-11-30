@@ -43,7 +43,7 @@ def create_review():
 
     if form.validate_on_submit():
         new_review = Review(
-            star_rating = form.data['star_rating'],
+            star_rating = int(form.data['star_rating']),
             review = form.data['review'],
             restaurant_id = form.data['restaurant_id'],
             user_id = current_user.id
@@ -69,15 +69,14 @@ def update_review(review_id):
     if updated_review.user_id != current_user.id:
         return jsonify({"message": 'Forbidden', "status_code": 403}), 403
 
-    print('ERROR LOOK HERE!!!!',type(request.json['star_rating']))
 
     form = EditReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-
         updated_review.star_rating = int(form.data['star_rating'])
         updated_review.review = form.data['review']
+        
         db.session.commit()
         return updated_review.to_dict(), 201
     return {"errors": validation_errors_to_error_messages(form.errors)}, 400

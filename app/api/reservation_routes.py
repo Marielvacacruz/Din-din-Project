@@ -38,8 +38,33 @@ def create_reservation():
     return {"errors": validation_errors_to_error_messages(form.errors)},400
 
 
+@reservation_routes.route('/:reservation_id', methods=['PUT'])
+@login_required
+def update_reservation(reservation_id):
+    """
+    Edits an existing reservation by id, must be logged in
+    """
+    reservation = Reservation.query.get(reservation_id)
 
-#TODO:UPDATE
+    if reservation is None:
+        return jsonify({"message": 'Reservation does not exists', "status_code": 404}), 404
+
+    if reservation.user_id != current_user.id:
+        return jsonify({"message": 'Forbidden', "status_code": 403}), 403
+
+
+    form = ReservationForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+            reservation.time = form.data['time'],
+            reservation.date = form.data['date'],
+            reservation.guest_count = form.data['guest_count'],
+
+            db.session.commit()
+            return reservation.to_dict(), 201
+    return {"errors": validation_errors_to_error_messages(form.errors)},400
+
 
 @reservation_routes.route('/<int:reservation_id>', methods=['DELETE'])
 @login_required
