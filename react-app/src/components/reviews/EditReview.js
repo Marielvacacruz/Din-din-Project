@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory} from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import { updateReview } from '../../store/review';
 
 function EditReviewForm({closeModal,reviewId}){
@@ -13,7 +13,6 @@ function EditReviewForm({closeModal,reviewId}){
     const [submit, setSubmit] = useState(false);
 
     const dispatch = useDispatch();
-    const history = useHistory();
     const user = useSelector(state => state.session.user);
 
     if(!user) return (<Redirect to='/'/>);
@@ -32,7 +31,6 @@ function EditReviewForm({closeModal,reviewId}){
         return dispatch(updateReview(editedReview, reviewId))
                 .then(closeModal())
                 .then(window.alert('review edits accepted'))
-                .then(history.push('/'))
     };
 
     const exitFromModal = (e) => {
