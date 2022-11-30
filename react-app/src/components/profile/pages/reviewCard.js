@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { destroyReview } from "../../../store/review";
+import { destroyReview} from "../../../store/review";
+import EditReviewModal from "../modals/editedReview";
 
 function ReviewCard({review}){
     const dispatch = useDispatch;
@@ -8,11 +9,9 @@ function ReviewCard({review}){
     const handleDelete = e => {
         e.stopPropagation();
         dispatch(destroyReview(review.id));
-        window.alert("You have successfully delete your review")
+        window.alert("You have successfully deleted your review")
 
     };
-
-    //handle delete review
 
     return (
         <div key={review.id}>
@@ -21,7 +20,12 @@ function ReviewCard({review}){
             </Link>
             <div>
                 {review.star_rating}
-                <span>{review.review}</span>
+                <p>{review.review}</p>
+            </div>
+            <div>
+                <EditReviewModal/>
+                <button onClick={handleDelete}>Delete Review</button>
+
             </div>
         </div>
     )

@@ -39,7 +39,6 @@ function ReviewForm({closeModal, restaurantId}){
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-
     };
 
     const exitFromModal = (e) => {
