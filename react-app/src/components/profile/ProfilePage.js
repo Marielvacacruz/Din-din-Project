@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import {Link, Redirect} from "react-router-dom";
 import {getUserReviews} from '../../store/review';
 import UserReviews from "./pages/userReviews";
+import UserReservations from "./pages/UserReservations";
+import { fetchReservations } from "../../store/reservations";
 
 function UserProfile(){
     const dispatch = useDispatch();
@@ -15,14 +17,17 @@ function UserProfile(){
         if (!isLoaded)
             (async () => {
                 await dispatch(getUserReviews());
+                dispatch(fetchReservations());
                 setIsLoaded(true);
             })();
     }, [dispatch, isLoaded,]);
 
     const [userReviews, setUserReviews] = useState(false);
+    const [reservations, setUserReservations] = useState(true);
 
     const handleReviewsPage = () => {
         setUserReviews(true)
+        setUserReservations(false)
     };
 
     //if user logs out while on profile redirect to home page:
@@ -35,7 +40,7 @@ function UserProfile(){
             <nav className="toggle-container">
                 <div className="row">
                     <div className="toggles">
-                        {/* <button className={userStories? "toggle-button-selected": "toggle-button"} onClick={handleStoriesPage}>Stories</button> */}
+                        <button className={reservations? "toggle-button-selected": "toggle-button"} onClick={handleReservationsPage}>Reservations</button>
                         { currentUser && (
                         <button className={userReviews? "toggle-button-selected": "toggle-button"} onClick={handleReviewsPage}>Reviews</button>
                         )}
@@ -44,7 +49,7 @@ function UserProfile(){
                 </div>
             </nav>
             <div className="pages-container">
-                {/* {userStories? <UserStoriesFeed stories={userProfile.Stories}/> : null} */}
+                {reservations? <UserReservations isLoaded={isLoaded}/> : null}
                 {userReviews? <UserReviews isLoaded={isLoaded}/> : null}
                 {/* {userBio? <UserBio bio={userProfile.bio}/> : null } */}
             </div>
