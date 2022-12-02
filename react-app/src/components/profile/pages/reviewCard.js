@@ -4,13 +4,12 @@ import { destroyReview} from "../../../store/review";
 import EditReviewModal from "../../modals/editReviewModal"
 
 function ReviewCard({review}){
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
 
     const handleDelete = e => {
-        e.stopPropagation();
-        dispatch(destroyReview(review.id));
-        window.alert("You have successfully deleted your review")
-
+        e.preventDefault();
+        dispatch(destroyReview(review.id))
+        window.alert("Your review has been deleted")
     };
 
     return (

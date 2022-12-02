@@ -30,12 +30,17 @@ function UserProfile(){
         setUserReservations(false)
     };
 
+    const handleReservationsPage= () => {
+        setUserReservations(true)
+        setUserReviews(false)
+    };
+
     //if user logs out while on profile redirect to home page:
     if(!currentUser) return <Redirect to="/"/>;
     return (
         <div id="user-profile-page">
             <div id="user-details">
-                <h1>{currentUser.first_name} * {currentUser.last_name}</h1>
+                <h1>{currentUser.first_name} {currentUser.last_name}</h1>
             </div>
             <nav className="toggle-container">
                 <div className="row">

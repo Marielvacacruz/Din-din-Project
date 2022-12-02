@@ -5,7 +5,7 @@ import { createReview } from '../../store/review';
 
 function ReviewForm({closeModal, restaurantId}){
     //form fields
-    const [star_rating, setStarRating] = useState(0);
+    const [star_rating, setStarRating] = useState(1);
     const [review, setReview] = useState('');
     const [errors, setErrors] = useState([]);
     const [submit, setSubmit] = useState(false);
@@ -29,16 +29,9 @@ function ReviewForm({closeModal, restaurantId}){
         setErrors([]);
 
         return dispatch(createReview(newReview))
-            .then(async (res) =>{
-                if(res.ok){
-                    dispatch(closeModal());
-                    window.alert("Your review has been submitted")
-                };
-            })
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+                .then(closeModal())
+                .then(window.alert("Your review has been submitted"))
+
     };
 
     const exitFromModal = (e) => {
@@ -67,7 +60,6 @@ function ReviewForm({closeModal, restaurantId}){
                             <option value={4}>4</option>
                             <option value={5}>5</option>
                         </select>
-                    <label>write a detailed review!</label>
                         <textarea
                             type='review'
                             name='review'

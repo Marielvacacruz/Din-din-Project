@@ -8,7 +8,7 @@ function ReviewModal({restaurantId}){
     return (
         <>
         <button onClick={() => setShowModal(true)}>
-            Write Review
+            leave a review
         </button>
         {showModal &&(
             <ParentModal onClose={() => setShowModal(false)}>

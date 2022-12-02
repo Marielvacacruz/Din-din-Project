@@ -84,9 +84,11 @@ export const createReview = (review_data) => async(dispatch) => {
           review
         }),
     });
-    const data = await res.json();
-    dispatch(addReview(data));
-    return res;
+    if(res.ok){
+        const data = await res.json();
+        dispatch(addReview(data));
+    }
+    return res
 };
 
 //Edit a Review
@@ -145,7 +147,7 @@ export default function reviewReducer(state = {}, action){
 
         case ADD_REVIEW:
             newState.user[action.review.id] = action.review;
-            break;
+            return newState;
 
         case EDIT_REVIEW:
             newState.user[action.review.id] = action.review;
