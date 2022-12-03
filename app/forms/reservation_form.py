@@ -7,11 +7,11 @@ def validate_date(form, field):
     """
     validate that day is not in the past
     """
-    if field.data < datetime.data.today():
+    if field.data < datetime.date.today():
         raise ValidationError('Day must be current or in the future')
 
 class ReservationForm(FlaskForm):
-    time = TimeField('time', format='%H:%M:%S:', validators=[DataRequired()])
-    date = DateField('date', format='%Y-%M-%D', validators=[DataRequired(), validate_date])
+    time = TimeField('time', format='%H:%M', validators=[DataRequired()])
+    date = DateField('date', format='%Y-%m-%d', validators=[DataRequired(), validate_date])
     guest_count = IntegerField('guest_count', validators=[DataRequired(), NumberRange(min=1)])
     restaurant_id = IntegerField('restaurant_id', validators=[DataRequired()])

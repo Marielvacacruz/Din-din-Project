@@ -27,8 +27,6 @@ function ReservationForm({closeModal, restaurantId}){
             guest_count,
             restaurant_id: restaurantId
         }
-        console.log(reservation)
-
         setErrors([]);
 
         return dispatch(createReservation(reservation))

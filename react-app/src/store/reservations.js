@@ -69,14 +69,15 @@ export const createReservation = (reservation) => async(dispatch) => {
         }),
     });
     const data = await res.json();
-    console.log(data)
-    dispatch(addReservation(data));
-    return res;
+    if(res.ok){
+        dispatch(addReservation(data));
+    };
+    return data;
 };
 
 //Edit a Reservation
 export const updateReservation = (reservation, id) => async(dispatch) => {
-    let {time, date, guest_count,restaurant_id} = reservation
+    const {time, date, guest_count,restaurant_id} = reservation
 
     const res = await fetch(`/api/reservations/${id}`, {
         method: "PUT",
@@ -88,11 +89,11 @@ export const updateReservation = (reservation, id) => async(dispatch) => {
           restaurant_id
         }),
     });
+    const data = await res.json();
     if(res.ok){
-        const data = await res.json();
         dispatch(editReservation(data));
     };
-    return res
+    return data
 
 };
 

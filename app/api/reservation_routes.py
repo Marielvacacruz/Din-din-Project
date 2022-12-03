@@ -3,6 +3,7 @@ from flask_login import current_user, login_required
 from ..models import Reservation, db
 from ..forms import ReservationForm
 from ..api.auth_routes import validation_errors_to_error_messages
+import json
 
 reservation_routes = Blueprint('reservations', __name__)
 
@@ -38,7 +39,7 @@ def create_reservation():
     return {"errors": validation_errors_to_error_messages(form.errors)},400
 
 
-@reservation_routes.route('/:reservation_id', methods=['PUT'])
+@reservation_routes.route('/<int:reservation_id>', methods=['PUT'])
 @login_required
 def update_reservation(reservation_id):
     """
@@ -57,9 +58,9 @@ def update_reservation(reservation_id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-            reservation.time = form.data['time'],
-            reservation.date = form.data['date'],
-            reservation.guest_count = form.data['guest_count'],
+            # reservation.time = form.data['time'],
+            # reservation.date = form.data['date'],
+            reservation.guest_count = int(form.data['guest_count']),
 
             db.session.commit()
             return reservation.to_dict(), 201

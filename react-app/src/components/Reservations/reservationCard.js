@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { cancelReservation } from "../../store/reservations";
 import ReviewModal from "../modals/ReviewModal";
-//import ReservationModal once created
+import EditResModal from "../modals/editReservationModal";
 
 function ReservationCard({reservation, upcoming}){
     const dispatch = useDispatch();
@@ -40,9 +40,8 @@ function ReservationCard({reservation, upcoming}){
             <div>
                 {upcoming ? (
                     <div>
-                        <button>cancel reservation</button>
-                        <button>make changes</button>
-
+                        <EditResModal reservation={reservation}/>
+                        <button onClick={handleCancellation}>cancel reservation</button>
                     </div>
 
                 ): <ReviewModal restaurantId={restaurant.id}/>
