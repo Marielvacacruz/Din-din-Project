@@ -1,4 +1,5 @@
 import {useHistory, Link} from 'react-router-dom';
+import ReservationModal from '../modals/ReservationModal';
 
 function RestaurantCard({restaurant}){
     // history = useHistory();
@@ -29,7 +30,7 @@ function RestaurantCard({restaurant}){
                 <p>{restaurant.neighborhood}</p>
                 <p>{restaurant.price_range}</p>
             </div>
-            <button>reservation</button>
+            <ReservationModal restaurantId={restaurant.id}/>
 
         </div>
     )

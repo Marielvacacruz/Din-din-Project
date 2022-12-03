@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import { getRestaurant } from '../../store/restaurant';
 import { getRestaurantReviews } from '../../store/review';
+import DatePicker from 'react-date-picker';
 
 function RestaurantPage(){
     const dispatch = useDispatch();
@@ -48,6 +49,7 @@ function RestaurantPage(){
                 <h3>About {restaurant.name}</h3>
                 {restaurant.about}
             </div>
+
             <div id='restaurant-reviews'>
                 <h3>Reviews</h3>
                 { reviews && (

@@ -6,7 +6,7 @@ import ReviewModal from "../modals/ReviewModal";
 
 function ReservationCard({reservation, upcoming}){
     const dispatch = useDispatch();
-    const {time, date, guest_count, restaurant, id} = reservation;
+    const {time, guest_count, restaurant, id} = reservation;
     const [dofw, day, month , year] = reservation.date.split(" ");
 
     const handleCancellation = (e) => {
