@@ -49,7 +49,7 @@ function UserProfile(){
                         { currentUser && (
                         <button className={userReviews? "toggle-button-selected": "toggle-button"} onClick={handleReviewsPage}>Reviews</button>
                         )}
-                       {/* <button className={userBio? "toggle-button-selected": "toggle-button"} onClick={handleAboutPage}>About</button> */}
+                       {/* <button className={userFavorites? "toggle-button-selected": "toggle-button"} onClick={handleFavoritesPage}>Favorites</button> */}
                     </div>
                 </div>
             </nav>

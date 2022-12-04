@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import moment from 'moment';
 import { cancelReservation } from "../../store/reservations";
 import ReviewModal from "../modals/ReviewModal";
 import EditResModal from "../modals/editReservationModal";
@@ -8,6 +9,10 @@ function ReservationCard({reservation, upcoming}){
     const dispatch = useDispatch();
     const {time, guest_count, restaurant, id} = reservation;
     const [dofw, day, month , year] = reservation.date.split(" ");
+
+
+    const convertTime = moment(time, "HH:mm").format('h:mm a');
+
 
     const handleCancellation = (e) => {
         e.preventDefault();
@@ -30,7 +35,7 @@ function ReservationCard({reservation, upcoming}){
                 <span>
                     <i class="fa-regular fa-calendar"></i>
                     <p> {dofw} {month} {day} {year}</p>
-                    <p>{time} PM</p>
+                    <p>{convertTime}</p>
                 </span>
                 <span>
                     <i class="fa-solid fa-people-group"></i>

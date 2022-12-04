@@ -1,15 +1,19 @@
 import {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect} from 'react-router-dom';
+import moment from 'moment';
 import {updateReservation} from '../../store/reservations';
 
 function EditReservationForm({closeModal, reservation}){
     //form fields
     const [time, setTime] = useState(reservation.time);
-    const [date, setDate] = useState(reservation.date);
+    const [date, setDate] = useState(moment(reservation.date).format('YYYY-MM-DD'));
     const [guest_count, setGuestCount] = useState(reservation.guest_count);
     const [errors, setErrors] = useState([]);
     const [submit, setSubmit] = useState(false);
+
+    const today = moment().format('YYYY-MM-DD');
+    const sixMonthsOut = moment().add(6, 'months').format('YYYY-MM-DD');
 
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
@@ -17,7 +21,7 @@ function EditReservationForm({closeModal, reservation}){
     if(!user) return (<Redirect to='/'/>);
 
     //handle submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmit(true);
 
@@ -29,12 +33,11 @@ function EditReservationForm({closeModal, reservation}){
 
         }
         setErrors([]);
-        console.log(editedRes)
 
-        return dispatch(updateReservation(editedRes, reservation.id))
-                .then(closeModal())
-                .then(window.alert("Your reservation has been updated!"))
-
+        const data = await dispatch(updateReservation(editedRes, reservation.id))
+                if(data){
+                    setErrors(data)
+                }else{closeModal(); window.alert('your edits were submitted')}
     };
 
     const exitFromModal = (e) => {
@@ -70,7 +73,8 @@ function EditReservationForm({closeModal, reservation}){
                     <input
                         name='date'
                         type='date'
-                        min='2022-01-01'
+                        min={today}
+                        max={sixMonthsOut}
                         required
                         value={date}
                         onChange={(e) => setDate(e.target.value)}

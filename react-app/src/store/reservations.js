@@ -58,7 +58,9 @@ export const createReservation = (reservation) => async(dispatch) => {
         restaurant_id,
     } = reservation
 
-    const res = await fetch(`/api/reservations/`, {
+    let res;
+    try {
+        res = await fetch(`/api/reservations/`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -68,11 +70,14 @@ export const createReservation = (reservation) => async(dispatch) => {
           restaurant_id
         }),
     });
-    const data = await res.json();
-    if(res.ok){
+    }catch (e) {throw new Error ('Reservation was not created')}
+
+    const data = res.json();
+        if(res.ok){
         dispatch(addReservation(data));
-    };
-    return data;
+        }
+        return data
+
 };
 
 //Edit a Reservation
@@ -89,11 +94,16 @@ export const updateReservation = (reservation, id) => async(dispatch) => {
           restaurant_id
         }),
     });
-    const data = await res.json();
     if(res.ok){
+        const data = await res.json();
         dispatch(editReservation(data));
-    };
-    return data
+        return null;
+    }else if(res.status < 500){
+        const data = await res.json();
+        if(data.errors){
+            return data.errors;
+        }
+    } else {return ['An error occurred, Please try again']}
 
 };
 

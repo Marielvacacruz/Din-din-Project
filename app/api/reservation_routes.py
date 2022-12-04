@@ -58,9 +58,9 @@ def update_reservation(reservation_id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-            # reservation.time = form.data['time'],
-            # reservation.date = form.data['date'],
-            reservation.guest_count = int(form.data['guest_count']),
+            reservation.time = form.data['time']
+            reservation.date = form.data['date']
+            reservation.guest_count = form.data['guest_count']
 
             db.session.commit()
             return reservation.to_dict(), 201

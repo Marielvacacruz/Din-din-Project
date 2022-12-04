@@ -2,18 +2,16 @@ import {useHistory, Link} from 'react-router-dom';
 import ReservationModal from '../modals/ReservationModal';
 
 function RestaurantCard({restaurant}){
-    // history = useHistory();
+    const history = useHistory();
 
-    //  //if restaurant card clicked, send user to restaurant details
-    //  const handleClick = (city, url_slug) => {
-    //     history.push(`/restaurants/${city}/${url_slug}`)
-    // };
-
-    // onClick={() => handleClick(restaurant.city, restaurant.url_slug)}
+     //if restaurant card clicked, send user to restaurant details
+     const handleClick = (city, url_slug) => {
+        history.push(`/restaurants/${city}/${url_slug}`)
+    };
 
     return(
         <div className="restaurant-card">
-             <div className="thumbnail-container">
+             <div className="thumbnail-container" onClick={() => handleClick(restaurant.city, restaurant.url_slug)}>
                 <img src={restaurant.preview_img_url}
                 alt="restaurant interior"
                 className="preview-image-thumbnail"
@@ -21,7 +19,9 @@ function RestaurantCard({restaurant}){
             </div>
 
             <div className="card-details">
-                <Link to={`/restaurants/${restaurant.state}/${restaurant.url_slug}`} className="detail-name">{restaurant.name}</Link>
+                <Link to={`/restaurants/${restaurant.state}/${restaurant.url_slug}`} className="detail-name">
+                    {restaurant.name}
+                </Link>
                 <div>
                 <i className="fa-solid fa-star"></i>
                     {restaurant.rating}
