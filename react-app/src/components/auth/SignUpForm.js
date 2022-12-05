@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
-const SignUpForm = () => {
+const SignUpForm = ({closeModal, switchForm}) => {
   const [errors, setErrors] = useState([]);
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
@@ -48,12 +48,21 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const exitModal = (e) => {closeModal()};
+
+  const switchLogin = (e) => {switchForm()};
+
   if (user) {
     return <Redirect to='/' />;
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <div className='signup-container'>
+      <button onClick={exitModal}>
+        <i className="fa-solid fa-xmark"></i>
+      </button>
+      <span>Join Din Din</span>
+      <form onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -89,8 +98,9 @@ const SignUpForm = () => {
       <div>
         <label>Email</label>
         <input
-          type='text'
+          type='email'
           name='email'
+          placeholder='name@example.com'
           onChange={updateEmail}
           value={email}
         ></input>
@@ -116,6 +126,14 @@ const SignUpForm = () => {
       </div>
       <button type='submit'>Sign Up</button>
     </form>
+    <div>
+          <span>
+            Already have an account?
+            <button onClick={switchLogin}>Log back in</button>
+          </span>
+        </div>
+    </div>
+
   );
 };
 

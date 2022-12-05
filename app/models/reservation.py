@@ -23,7 +23,7 @@ class Reservation(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'time': self.time,
+            'time': self.time.strftime("%H:%M"),
             'date': self.date,
             'guest_count': self.guest_count,
             'restaurant': self.restaurant.to_dict(),

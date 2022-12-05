@@ -3,11 +3,15 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/Navigation/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
+import RestaurantList from './components/Restaurants/RestaurantList';
+import RestaurantPage from './components/Restaurants/RestaurantDetails';
+import Footer from './components/Navigation/Footer';
+import HomePage from './components/HomePage';
+import UserProfile from './components/profile/ProfilePage';
+import PageNotFound from './components/Utility/PageNotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,22 +32,23 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <HomePage/>
+        </Route>
+        <Route path='/restaurants/:state' exact={true}>
+          <RestaurantList/>
+        </Route>
+        <Route path='/restaurants/:state/:restaurant_url' exact={true}>
+          <RestaurantPage/>
+        </Route>
+        <ProtectedRoute path='/profile'>
+          <UserProfile/>
+        </ProtectedRoute>
+        <Route>
+          <PageNotFound/>
         </Route>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }
