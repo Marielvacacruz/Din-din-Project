@@ -12,6 +12,9 @@ function UserProfile(){
 
     const [isLoaded, setIsLoaded] = useState(false);
 
+     //if user logs out while on profile redirect to home page:
+    //  if(!currentUser) return <Redirect to="/"/>;
+
 
     useEffect(() => {
         if (!isLoaded)
@@ -35,8 +38,7 @@ function UserProfile(){
         setUserReviews(false)
     };
 
-    //if user logs out while on profile redirect to home page:
-    if(!currentUser) return <Redirect to="/"/>;
+
     return (
         <div id="user-profile-page">
             <div id="user-details">

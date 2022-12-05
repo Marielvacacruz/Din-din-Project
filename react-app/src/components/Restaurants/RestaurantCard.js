@@ -1,8 +1,10 @@
 import {useHistory, Link} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 import ReservationModal from '../modals/ReservationModal';
 
 function RestaurantCard({restaurant}){
     const history = useHistory();
+    const user = useSelector((state) => state.session.user);
 
      //if restaurant card clicked, send user to restaurant details
      const handleClick = (city, url_slug) => {
@@ -30,7 +32,14 @@ function RestaurantCard({restaurant}){
                 <p>{restaurant.neighborhood}</p>
                 <p>{restaurant.price_range}</p>
             </div>
-            <ReservationModal restaurantId={restaurant.id}/>
+            {user && (
+                <ReservationModal restaurantId={restaurant.id}/>
+            )}
+            {!user && (
+                <div>
+                    <p>To make a reservation: Please log in or sign up!</p>
+                </div>
+            )}
 
         </div>
     )

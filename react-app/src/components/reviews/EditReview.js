@@ -62,9 +62,12 @@ function EditReviewForm({ closeModal, reviewId }) {
           </select>
           <label>write a detailed review!</label>
           <textarea
-            type="review"
+            type="text"
             name="review"
             id="review"
+            minLength='1'
+            maxLength='500'
+            rows={5}
             placeholder="Tell us about your dining experience"
             value={review}
             onChange={(e) => setReview(e.target.value)}

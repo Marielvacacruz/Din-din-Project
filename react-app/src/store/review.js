@@ -80,9 +80,14 @@ export const createReview = (review_data) => async (dispatch) => {
   });
   if (res.ok) {
     const data = await res.json();
-    dispatch(addReview(data));
-  }
-  return res;
+    dispatch(addReview(data))
+    return null;
+  }else if(res.status < 500){
+    const data = await res.json();
+    if(data.errors){
+      return data.errors;
+    };
+  }else {return ['An error has occurred, please try again']}
 };
 
 //Edit a Review

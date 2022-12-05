@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import moment from "moment";
 import { createReservation } from "../../store/reservations";
-import LoginForm from "../auth/LoginForm";
 
 function ReservationForm({ closeModal, restaurantId }) {
   //form fields
@@ -17,9 +15,6 @@ function ReservationForm({ closeModal, restaurantId }) {
   const sixMonthsOut = moment().add(6, "months").format("YYYY-MM-DD");
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
-
-  if (!user) return <Redirect to="/" />;
 
   //handle submission
   const handleSubmit = async (e) => {
@@ -87,8 +82,8 @@ function ReservationForm({ closeModal, restaurantId }) {
           <input
             name="time"
             type="time"
-            min="12:00:00"
-            max="23:00:00"
+            min="16:00"
+            max="23:00"
             required
             value={time}
             onChange={(e) => setTime(e.target.value)}

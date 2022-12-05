@@ -98,8 +98,9 @@ const SignUpForm = ({closeModal, switchForm}) => {
       <div>
         <label>Email</label>
         <input
-          type='text'
+          type='email'
           name='email'
+          placeholder='name@example.com'
           onChange={updateEmail}
           value={email}
         ></input>

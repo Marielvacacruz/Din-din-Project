@@ -11,6 +11,7 @@ import RestaurantPage from './components/Restaurants/RestaurantDetails';
 import Footer from './components/Navigation/Footer';
 import HomePage from './components/HomePage';
 import UserProfile from './components/profile/ProfilePage';
+import PageNotFound from './components/Utility/PageNotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,9 @@ function App() {
         <ProtectedRoute path='/profile'>
           <UserProfile/>
         </ProtectedRoute>
+        <Route>
+          <PageNotFound/>
+        </Route>
       </Switch>
       <Footer/>
     </BrowserRouter>
