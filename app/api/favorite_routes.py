@@ -4,7 +4,7 @@ from ..models import db, Favorite
 
 favorite_routes = Blueprint('favorites', __name__)
 
-#TODO: complete favorite routes 
+#TODO: complete favorite routes
 @favorite_routes('')
 @login_required
 def get_users_favorites():
@@ -16,4 +16,6 @@ def get_users_favorites():
 
     favorites = [fave.to_dict() for fave in faveList.all()]
 
-    return jsonify({''})
+    return jsonify({
+        'user_id': current_user,
+        'restaurant_ids': [fav['restaurant_id'] for fav in favorites]}), 200
