@@ -7,7 +7,7 @@ import {updateReservation} from '../../store/reservations';
 function EditReservationForm({closeModal, reservation}){
     //form fields
     const [time, setTime] = useState(reservation.time);
-    const [date, setDate] = useState(moment(reservation.date).format('YYYY-MM-DD'));
+    const [date, setDate] = useState(reservation.date);
     const [guest_count, setGuestCount] = useState(reservation.guest_count);
     const [errors, setErrors] = useState([]);
     const [submit, setSubmit] = useState(false);

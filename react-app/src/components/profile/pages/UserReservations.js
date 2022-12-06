@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import ReservationCard from "../../Reservations/reservationCard";
+import moment from "moment";
 
 function UserReservations({isLoaded}){
     const reservations = useSelector(state => state.reservations);
@@ -10,13 +11,19 @@ function UserReservations({isLoaded}){
     //check reservation date and sort
     if(isLoaded && reservations){
         Object.values(reservations).forEach((reservation) => {
-            const resDate = new Date(reservation.date);
-            const today = new Date();
+            // console.log("Reservation Date", reservation.date)
+            // const today = moment().format('ddd, DD MMM YYYY, h:mm:ss');
+            // console.log("Today:", today)
+            // console.log(today > reservation.date)
+            const [y, m , d] = reservation.date.split("-")
+            const formattedDate = new Date(+y, m -1, +d)
+            const today = new Date()
 
-            if(today > resDate){
+            if(today > formattedDate){
                 pastReservations.push(reservation)
             } else upcomingReservations.push(reservation)
         });
+
 
         upcomingReservations.sort((a, b) => a.day < b.day ? -1 : 1);
 

@@ -24,7 +24,7 @@ class Reservation(db.Model):
         return {
             'id': self.id,
             'time': self.time.strftime("%H:%M"),
-            'date': self.date,
+            'date': self.date.strftime("%Y-%m-%d"),
             'guest_count': self.guest_count,
             'restaurant': self.restaurant.to_dict(),
             'user': self.user.to_dict()
