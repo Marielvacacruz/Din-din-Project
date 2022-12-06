@@ -8,7 +8,8 @@ import EditResModal from "../modals/editReservationModal";
 function ReservationCard({reservation, upcoming}){
     const dispatch = useDispatch();
     const {time, guest_count, restaurant, id} = reservation;
-    const [dofw, day, month , year] = reservation.date.split(" ");
+    const formattedDate = moment(reservation.date).format("ddd, MMM Do YYYY")
+
 
 
     const convertTime = moment(time, "HH:mm").format('h:mm a');
@@ -34,7 +35,7 @@ function ReservationCard({reservation, upcoming}){
             <div>
                 <span>
                     <i class="fa-regular fa-calendar"></i>
-                    <p> {dofw} {month} {day} {year}</p>
+                    <p> {formattedDate}</p>
                     <p>{convertTime}</p>
                 </span>
                 <span>
