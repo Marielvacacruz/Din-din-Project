@@ -9,9 +9,6 @@ function ReservationCard({reservation, upcoming}){
     const dispatch = useDispatch();
     const {time, guest_count, restaurant, id} = reservation;
     const formattedDate = moment(reservation.date).format("ddd, MMM Do YYYY")
-
-
-
     const convertTime = moment(time, "HH:mm").format('h:mm a');
 
 
