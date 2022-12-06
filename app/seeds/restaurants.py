@@ -19,7 +19,7 @@ def seed_restaurants():
     nola3 = Restaurant(
         name='Plume Algiers', type='Indian', url_slug='plume-algiers-new-orleans', rating=0, price_range='$$',
         about='Plume Algiers is a celebration of regional Indian cuisine born from one couple’s love of the dynamic dishes of India. Our menu changes weekly based on what is fresh and locally available.',
-        phone_num='5043814893', website_url='https://www.plumealgeirs.com.com/', address_line='1113 Teche St', city='New Orleans', state='LA', zip_code='70114',
+        phone_num='5043814893', website_url='https://www.plumealgiers.com.com/', address_line='1113 Teche St', city='New Orleans', state='LA', zip_code='70114',
         open_time=time(hour=14), closing_time=time(hour=21), neighborhood='Algiers', preview_img_url='https://res.cloudinary.com/dyobydo5h/image/upload/v1668620828/Din%20Din%20/1600x1600_c1lo7e.jpg'
         )
     nola4 = Restaurant(
@@ -47,7 +47,7 @@ def seed_restaurants():
         open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Madison', preview_img_url='https://res.cloudinary.com/dyobydo5h/image/upload/v1668643953/Din%20Din%20/1600x1600_wncjxb.jpg'
         )
     seattle4 = Restaurant(
-        name='Maximilien', type='French', url_slug='paladar-511-seattle', rating=0, price_range='$$$',
+        name='Maximilien', type='French', url_slug='maximilien-seattle', rating=0, price_range='$$$',
         about="Maximilien has the wine and dine playbook on lockdown: perfect views of the Seattle waterfront and seasonally-inspired, top-notch French fare.",
         phone_num='2066827270', website_url='https://www.maximilienrestaurant.com/', address_line='81a Pike Street', city='Seattle', state='WA', zip_code='98101',
         open_time=time(hour=17), closing_time=time(hour=22), neighborhood='Pike Place Market', preview_img_url='https://res.cloudinary.com/dyobydo5h/image/upload/v1668644063/Din%20Din%20/1600x1600_bad1m9.jpg'

@@ -31,7 +31,7 @@ function ReviewForm({ closeModal, restaurantId }) {
     const data = await dispatch(createReview(newReview))
     if (data) {
       setErrors(data);
-    }else{closeModal(); window.alert('your edits were submitted')}
+    }else{closeModal(); window.alert('Your review has been submitted')}
   }
 
   const exitFromModal = (e) => {
