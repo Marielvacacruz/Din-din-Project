@@ -35,11 +35,11 @@ function RestaurantCard({restaurant}){
             {user && (
                 <ReservationModal restaurantId={restaurant.id}/>
             )}
-            {!user && (
+            {/* {!user && (
                 <div>
                     <p>To make a reservation: Please log in or sign up!</p>
                 </div>
-            )}
+            )} */}
 
         </div>
     )

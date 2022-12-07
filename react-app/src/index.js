@@ -10,7 +10,7 @@ import { ModalProvider } from './components/modals/Modal';
 import './styles/restaurantCard.css'
 import './styles/RestaurantList.css'
 import './styles/footer.css'
-
+import './styles/navigation.css'
 
 const store = configureStore();
 

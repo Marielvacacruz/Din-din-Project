@@ -4,3 +4,9 @@
     display: grid;
     grid-column-gap: 5px;
 }
+
+
+#tag-line{
+    font-size: 18px;
+    color: black;
+}

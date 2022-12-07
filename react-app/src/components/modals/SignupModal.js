@@ -9,8 +9,8 @@ function SignupModal(){
 
     return (
         <>
-        <button className='signup-button' onClick={() => setShowModal(true)}>
-            Sign up!
+        <button  id='signup-button' onClick={() => setShowModal(true)}>
+            Join Din Din
         </button>
         {showModal &&(
             <ParentModal onClose={() => setShowModal(false)}>

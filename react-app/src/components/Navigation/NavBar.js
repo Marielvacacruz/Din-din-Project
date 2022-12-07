@@ -8,10 +8,11 @@ const NavBar = () => {
   const currentUser = useSelector(state => state.session.user);
 
   return (
-    <nav>
-      <div>
-        <NavLink className='din-din' exact to='/'>Din Din</NavLink>
-        <p>book your next dinner reservation with us!</p>
+    <nav id='navigation-container'>
+      <div className='home-link-container'>
+        <NavLink className='home-link' exact to='/'>
+          <p className='din-din'>Din Din</p>
+          </NavLink>
       </div>
       {currentUser? <AuthNav /> : <UnAuthNav/>}
     </nav>
