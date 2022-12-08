@@ -13,7 +13,7 @@
 }
 
 
-.thumbnail-container {
+.img-container {
     height: 220px;
     width: 100%;
     box-sizing: border-box;
@@ -41,6 +41,6 @@
     text-decoration: none;
 }
 
-.fa-solid {
+.fa-star {
     color: #3038FF;
 }

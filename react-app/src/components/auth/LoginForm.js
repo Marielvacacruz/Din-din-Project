@@ -36,7 +36,7 @@ const LoginForm = ({closeModal, switchForm}) => {
 
   return (
     <div>
-      <button className='login-container' onClick={exitModal}>
+      <button className='exit-icon' onClick={exitModal}>
         <i className="fa-solid fa-xmark"></i>
       </button>
       <span>Welcome Back</span>

@@ -13,6 +13,7 @@ import './styles/footer.css'
 import './styles/navigation.css'
 import './styles/homePage.css'
 import './styles/reservationCard.css'
+import './styles/forms.css'
 
 const store = configureStore();
 

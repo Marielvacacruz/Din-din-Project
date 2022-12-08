@@ -25,7 +25,7 @@ export function ParentModal({onClose, children}){
     if(!modalNode) return null;
 
     return ReactDOM.createPortal(
-        <div id='modal'>
+        <div className='animate' id='modal'>
             <div id='background' onClick={onClose}/>
             <div id='content'>{children}</div>
         </div>,

@@ -1,8 +1,7 @@
 .card{
     display: flex;
     flex-direction: row;
-    border-radius: 2em;
-    border: 1px solid #fff;;
+    border-bottom: 1px solid #0B0803;;
     box-shadow: 0 2px 4px 0 #eaeaea;
     height: fit-content;
     position: relative;
@@ -23,7 +22,6 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-    border-radius: 10px;
     height: 100%;
     box-sizing: border-box;
     max-width: 250px;

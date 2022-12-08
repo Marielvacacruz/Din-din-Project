@@ -58,7 +58,7 @@ const SignUpForm = ({closeModal, switchForm}) => {
 
   return (
     <div className='signup-container'>
-      <button onClick={exitModal}>
+      <button className='exit-icon' onClick={exitModal}>
         <i className="fa-solid fa-xmark"></i>
       </button>
       <span>Join Din Din</span>

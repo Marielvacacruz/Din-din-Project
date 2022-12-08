@@ -13,7 +13,7 @@ function RestaurantCard({restaurant}){
 
     return(
         <div className="restaurant-card">
-             <div className="thumbnail-container" onClick={() => handleClick(restaurant.city, restaurant.url_slug)}>
+             <div className="img-container" onClick={() => handleClick(restaurant.city, restaurant.url_slug)}>
                 <img src={restaurant.preview_img_url}
                 alt="restaurant interior"
                 className="preview-image-thumbnail"

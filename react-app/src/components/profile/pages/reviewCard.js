@@ -13,7 +13,7 @@ function ReviewCard({review}){
     };
 
     return (
-        <div key={review.id}>
+        <div className="card" key={review.id}>
             <Link to={`/restaurants/${review.restaurant?.state}/${review.restaurant?.url_slug}`}>
                 {review.restaurant?.name}
             </Link>

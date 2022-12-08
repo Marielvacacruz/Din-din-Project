@@ -1,0 +1,13 @@
+.exit-icon{
+    position: absolute;
+    right: 25px;
+    color: #0B0803;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+.exit-icon:hover{
+    color: #E59317;
+    cursor: pointer;
+}
