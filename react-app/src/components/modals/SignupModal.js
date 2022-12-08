@@ -9,7 +9,7 @@ function SignupModal(){
 
     return (
         <>
-        <button  id='signup-button' onClick={() => setShowModal(true)}>
+        <button className='signup-button' onClick={() => setShowModal(true)}>
             Join Din Din
         </button>
         {showModal &&(

@@ -18,3 +18,17 @@ body {
     background-color: #EAB5BB;
     color: #0b0803;
 }
+
+.global-button{
+    font-size: 15px;
+    border: 0;
+    border-radius: 2px;
+    background-color: white;
+    border: 2px solid #E59317;
+    transition-duration: 0.4s;
+}
+
+.global-button:hover{
+    background-color: #EAB5BB;
+    color: #F6F6F6;
+}

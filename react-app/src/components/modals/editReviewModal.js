@@ -8,7 +8,7 @@ function EditReviewModal({reviewId}){
 
     return (
         <>
-        <button onClick={() => setShowModal(true)}>
+        <button className='global-button' onClick={() => setShowModal(true)}>
             Edit Review
         </button>
         {showModal &&(

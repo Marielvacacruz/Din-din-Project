@@ -7,7 +7,7 @@ function ReviewModal({restaurantId}){
 
     return (
         <>
-        <button onClick={() => setShowModal(true)}>
+        <button className='global-button' onClick={() => setShowModal(true)}>
             leave a review
         </button>
         {showModal &&(

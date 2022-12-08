@@ -23,7 +23,7 @@ function ReviewCard({review}){
             </div>
             <div>
                 <EditReviewModal reviewId={review.id}/>
-                <button onClick={handleDelete}>Delete Review</button>
+                <button className="global-button" onClick={handleDelete}>Delete Review</button>
 
             </div>
         </div>

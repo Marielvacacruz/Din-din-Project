@@ -23,10 +23,10 @@ function ReservationCard({reservation, upcoming}){
     };
 
     return(
-        <div>
-            <div>
+        <div className="card">
+            <div className="thumbnail-container">
                 <Link to={`/restaurants/${restaurant.state}/${restaurant.url_slug}`}>
-                    <img src={restaurant.preview_img_url} alt='restaurant icon'/>
+                    <img className="card-thumbnail" src={restaurant.preview_img_url} alt='restaurant icon'/>
                 </Link>
             </div>
             <div>
@@ -47,7 +47,7 @@ function ReservationCard({reservation, upcoming}){
                 {upcoming ? (
                     <div>
                         <EditResModal reservation={reservation}/>
-                        <button onClick={handleCancellation}>cancel reservation</button>
+                        <button className="global-button" onClick={handleCancellation}>cancel reservation</button>
                     </div>
 
                 ): <ReviewModal restaurantId={restaurant.id}/>

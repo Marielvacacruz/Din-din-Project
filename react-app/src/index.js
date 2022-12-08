@@ -11,6 +11,8 @@ import './styles/restaurantCard.css'
 import './styles/RestaurantList.css'
 import './styles/footer.css'
 import './styles/navigation.css'
+import './styles/homePage.css'
+import './styles/reservationCard.css'
 
 const store = configureStore();
 

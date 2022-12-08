@@ -1,0 +1,27 @@
+.home-page{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.heading-container{
+    display: flex;
+    width: max-content;
+    margin: auto;
+    align-items: center;
+}
+
+.heading{
+    color: #E59317;
+    border-bottom: 0.25px solid #4e4e4e;
+}
+
+.link-container{
+    align-self: center;
+}
+
+.city-link{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}

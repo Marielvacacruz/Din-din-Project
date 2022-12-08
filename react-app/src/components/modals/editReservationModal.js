@@ -7,7 +7,7 @@ function EditResModal({reservation}){
 
     return (
         <>
-        <button onClick={() => setShowModal(true)}>
+        <button className='global-button' onClick={() => setShowModal(true)}>
             change reservation
         </button>
         {showModal &&(

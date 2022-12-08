@@ -7,7 +7,7 @@ function ReservationModal({restaurantId}){
 
     return (
         <>
-        <button onClick={() => setShowModal(true)}>
+        <button className='global-button' onClick={() => setShowModal(true)}>
             reservation
         </button>
         {showModal &&(
