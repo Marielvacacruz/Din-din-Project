@@ -41,7 +41,7 @@ function App() {
         <Route path='/restaurants/:state/:restaurant_url' exact={true}>
           <RestaurantPage/>
         </Route>
-        <ProtectedRoute path='/profile'>
+        <ProtectedRoute path='/profile' exact={true}>
           <UserProfile/>
         </ProtectedRoute>
         <Route>
