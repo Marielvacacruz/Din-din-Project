@@ -89,7 +89,7 @@ function ReservationForm({ closeModal, restaurantId }) {
             onChange={(e) => setTime(e.target.value)}
           />
         </div>
-        <button className="button" type="submit">
+        <button className="form-button" type="submit">
           book now
         </button>
       </form>

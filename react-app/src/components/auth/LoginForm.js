@@ -65,13 +65,13 @@ const LoginForm = ({closeModal, switchForm}) => {
               value={password}
               onChange={updatePassword}
             />
-            <button type='submit'>Login</button>
+            <button className='form-button' type='submit'>Login</button>
           </div>
         </form>
         <div>
           <span>
             New Here?
-            <button onClick={switchSignUp}>Sign up!</button>
+            <button className='alt-button' onClick={switchSignUp}>Sign up!</button>
           </span>
         </div>
     </div>

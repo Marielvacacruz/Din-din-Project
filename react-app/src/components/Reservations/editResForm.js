@@ -49,7 +49,7 @@ function EditReservationForm({closeModal, reservation}){
             <button className="exit-icon" onClick={exitFromModal}>
                 <i className="fa-solid fa-xmark"></i>
             </button>
-            <span className='form-heading'>Reservations</span>
+            <span className='form-heading'>Change Reservation</span>
             <form onSubmit={handleSubmit} className="review-form">
                 <div>
                     <label htmlFor='guest_count'>Guests</label>
@@ -92,7 +92,7 @@ function EditReservationForm({closeModal, reservation}){
                         onChange={(e) => setTime(e.target.value)}
                     />
                 </div>
-                <button className='button' type='submit'>update</button>
+                <button className='form-button' type='submit'>update</button>
             </form>
         </div>
     )

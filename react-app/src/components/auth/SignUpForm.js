@@ -124,12 +124,12 @@ const SignUpForm = ({closeModal, switchForm}) => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='form-button' type='submit'>Sign Up</button>
     </form>
     <div>
           <span>
             Already have an account?
-            <button onClick={switchLogin}>Log back in</button>
+            <button className='alt-button' onClick={switchLogin}>Log back in</button>
           </span>
         </div>
     </div>

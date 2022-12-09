@@ -78,7 +78,7 @@ function ReviewForm({ closeModal, restaurantId }) {
             ))}
           </div>
         </div>
-        <button className="button" type="submit">
+        <button className="form-button" type="submit">
           Submit Review
         </button>
       </form>

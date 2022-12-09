@@ -79,7 +79,7 @@ function EditReviewForm({ closeModal, reviewId }) {
             ))}
           </div>
         </div>
-        <button className="button" type="submit">
+        <button className="form-button" type="submit">
           submit edits
         </button>
       </form>
