@@ -57,11 +57,11 @@ const SignUpForm = ({closeModal, switchForm}) => {
   }
 
   return (
-    <div className='signup-container'>
+    <div className='form-container'>
       <button className='exit-icon' onClick={exitModal}>
         <i className="fa-solid fa-xmark"></i>
       </button>
-      <span>Join Din Din</span>
+      <span className='form-heading'>Join Din Din</span>
       <form onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (

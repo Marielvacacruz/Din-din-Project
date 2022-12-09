@@ -35,11 +35,11 @@ const LoginForm = ({closeModal, switchForm}) => {
   }
 
   return (
-    <div>
+    <div className='form-container'>
       <button className='exit-icon' onClick={exitModal}>
         <i className="fa-solid fa-xmark"></i>
       </button>
-      <span>Welcome Back</span>
+      <span className='form-heading'>Welcome Back</span>
       <form onSubmit={onLogin}>
           <div>
             {errors.map((error, ind) => (
