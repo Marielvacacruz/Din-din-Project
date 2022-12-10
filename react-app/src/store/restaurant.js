@@ -52,7 +52,6 @@ export const getRestaurant = (restaurant_url) => async (dispatch) => {
 
     if(res.ok){
         const data = await res.json();
-        console.log(data)
         dispatch(setRestaurant(data));
     }
     return res;

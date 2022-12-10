@@ -13,9 +13,9 @@ function UserReservations({isLoaded}){
             const [y, m , d] = reservation.date.split("-")
             const formattedDate = new Date(+y, m -1, +d)
             const today = new Date()
-            console.log('formatted', formattedDate)
-            console.log('today', today)
-            console.log(today.getTime() > formattedDate.getTime())
+            // console.log('formatted', formattedDate)
+            // console.log('today', today)
+            // console.log(today.getTime() > formattedDate.getTime())
 
             if(today.getTime() > formattedDate.getTime()){
                 pastReservations.push(reservation)
