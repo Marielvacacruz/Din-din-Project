@@ -1,6 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {Link, Redirect} from "react-router-dom";
 import {getUserReviews} from '../../store/review';
 import UserReviews from "./pages/userReviews";
 import UserReservations from "./pages/UserReservations";
@@ -12,10 +11,6 @@ function UserProfile(){
 
     const [isLoaded, setIsLoaded] = useState(false);
 
-     //if user logs out while on profile redirect to home page:
-    //  if(!currentUser) return <Redirect to="/"/>;
-
-
     useEffect(() => {
         if (!isLoaded)
             (async () => {
@@ -23,7 +18,7 @@ function UserProfile(){
                 dispatch(fetchReservations());
                 setIsLoaded(true);
             })();
-    }, [dispatch, isLoaded,]);
+    }, [dispatch, isLoaded]);
 
     const [userReviews, setUserReviews] = useState(false);
     const [reservations, setUserReservations] = useState(true);

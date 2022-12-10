@@ -60,3 +60,10 @@
     color: rgb(203, 49, 165);
     font-size: 16px;
 }
+
+input:valid + span::after{
+    position: absolute;
+    content: "✓";
+    padding-left: 5px;
+    color: #009000;
+}

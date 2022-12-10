@@ -85,8 +85,9 @@ function EditReservationForm({closeModal, reservation}){
                     <input
                         name='time'
                         type='time'
-                        min='12:00:00'
-                        max='23:00:00'
+                        min="16:00"
+                        max="23:00"
+                        step="900"
                         required
                         value={time}
                         onChange={(e) => setTime(e.target.value)}

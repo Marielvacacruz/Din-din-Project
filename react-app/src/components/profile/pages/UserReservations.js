@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import ReservationCard from "../../Reservations/reservationCard";
-import moment from "moment";
 
 function UserReservations({isLoaded}){
     const reservations = useSelector(state => state.reservations);
@@ -11,13 +10,11 @@ function UserReservations({isLoaded}){
     //check reservation date and sort
     if(isLoaded && reservations){
         Object.values(reservations).forEach((reservation) => {
-            // console.log("Reservation Date", reservation.date)
-            // const today = moment().format('ddd, DD MMM YYYY, h:mm:ss');
-            // console.log("Today:", today)
-            // console.log(today > reservation.date)
             const [y, m , d] = reservation.date.split("-")
             const formattedDate = new Date(+y, m -1, +d)
             const today = new Date()
+            console.log('formatted', formattedDate, formattedDate.getDate())
+            console.log('today', today, today.getDate())
 
             if(today > formattedDate){
                 pastReservations.push(reservation)
@@ -33,7 +30,7 @@ function UserReservations({isLoaded}){
     let upcomingContainer
 
     // fill Upcoming container
-        reservations && upcomingReservations.length ? (
+        reservations && upcomingReservations.length && (
             upcomingContainer = (
                 <div>
                     {upcomingReservations.map((reservation) => (
@@ -41,12 +38,12 @@ function UserReservations({isLoaded}){
                     ))}
                 </div>
             )
-        )  : <p>You don't have any upcoming reservations.</p>
+        )
 
     let pastContainer
     //fil past container
 
-    reservations && pastReservations.length ? (
+    reservations && pastReservations.length &&(
         pastContainer = (
             <div>
                 {pastReservations.map((reservation) => (
@@ -54,7 +51,7 @@ function UserReservations({isLoaded}){
                 ))}
             </div>
         )
-    )  : <p>nothing to show!</p>
+    )
 
 
     return (
@@ -62,10 +59,12 @@ function UserReservations({isLoaded}){
             <div>
                 <h3>Upcoming Reservations</h3>
                 {isLoaded && upcomingContainer}
+                {!upcomingContainer && (<p>No upcoming reservations.</p>)}
             </div>
             <div>
                 <h3>Past Reservations</h3>
                 {isLoaded && pastContainer}
+                {!pastContainer && (<p>Nothing to show.</p>)}
             </div>
         </div>
     )
