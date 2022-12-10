@@ -47,13 +47,13 @@ function RestaurantPage() {
               <p>To make a reservation: Please log in or sign up!</p>
             </div>
           )}
-          <div id="outer-button-container">
+          {/* <div id="outer-button-container">
             <div id="inner-button-container">SAVE BUTTON HERE</div>
-          </div>
+          </div> */}
         </div>
-        <div id="res-image-container">
+        {/* <div id="res-image-container">
           <div className="Image">IMAGE HERE</div>
-        </div>
+        </div> */}
         <div id="about">
           <h3>About {restaurant.name}</h3>
           {restaurant.about}

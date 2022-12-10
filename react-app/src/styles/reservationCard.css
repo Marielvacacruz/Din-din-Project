@@ -34,3 +34,7 @@
     min-height: 11rem;
     width: 100%;
 }
+
+.card-thumbnail:hover{
+    opacity: .9;
+}
