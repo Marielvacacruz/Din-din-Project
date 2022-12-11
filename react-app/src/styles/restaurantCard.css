@@ -38,6 +38,9 @@
 }
 
 .card-details {
+    display: block;
+    padding: 8px;
+    position:relative;
 
 }
 
@@ -52,4 +55,15 @@
 
 .fa-star {
     color: #3038FF;
+}
+
+.info-details{
+    height: auto;
+    margin-bottom: 0;
+    line-height: 15%;
+    color: #737373;
+}
+
+#button-container{
+    margin-left: 5em;
 }

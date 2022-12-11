@@ -24,20 +24,25 @@ function RestaurantCard({restaurant}){
                 <Link to={`/restaurants/${restaurant.state}/${restaurant.url_slug}`} className="detail-name">
                     {restaurant.name}
                 </Link>
-                <div>
+                <div className='rating-container'>
                 <i className="fa-solid fa-star"></i>
                     {restaurant.rating}
                 </div>
-                <p>{restaurant.type}</p>
-                <p>{restaurant.neighborhood}</p>
-                <p>{restaurant.price_range}</p>
+                <div className='info-details'>
+                    <p>{restaurant.type}</p>
+                    <p>{restaurant.neighborhood}</p>
+                    <p>{restaurant.price_range}</p>
+                </div>
+
             </div>
             {user && (
-                <ReservationModal restaurantId={restaurant.id}/>
+                <div id='button-container'>
+                    <ReservationModal restaurantId={restaurant.id}/>
+                </div>
             )}
             {/* {!user && (
                 <div>
-                    <p>To make a reservation: Please log in or sign up!</p>
+                    <p>Please log in or sign up to book reservation</p>
                 </div>
             )} */}
 

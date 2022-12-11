@@ -75,7 +75,7 @@
     text-decoration: none;
 }
 
-.din-din{
+#din-din{
     font-size: 80px;
     color: #3038FF;
     margin-bottom: 0;
@@ -83,11 +83,15 @@
     font-family: "Avenir Next LT W01 Bold",sans-serif;
 }
 
+#din-din:hover{
+  opacity: .9;
+}
+
 .home-link-container{
     display: flex;
     flex-direction: column;
-    align-self: center;
-    margin-left: 25em;
+    /* align-self: center; */
+    margin-left: 3em;
     margin-top: 0;
     align-items: center;
 }
