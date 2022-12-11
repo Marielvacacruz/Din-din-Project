@@ -10,18 +10,16 @@ function UserReservations({isLoaded}){
     //check reservation date and sort
     if(isLoaded && reservations){
         Object.values(reservations).forEach((reservation) => {
+            const [h, mm]= reservation.time.split(':')
             const [y, m , d] = reservation.date.split("-")
-            const formattedDate = new Date(+y, m -1, +d)
+            const formattedDate = new Date(+y, m -1, +d, +h, +mm)
             const today = new Date()
-            // console.log('formatted', formattedDate)
-            // console.log('today', today)
-            // console.log(today.getTime() > formattedDate.getTime())
 
             if(today.getTime() > formattedDate.getTime()){
                 pastReservations.push(reservation)
             } else upcomingReservations.push(reservation)
         });
-
+        
 
         upcomingReservations.sort((a, b) => a.day < b.day ? -1 : 1);
 
