@@ -123,10 +123,11 @@ export default function reservationReducer(state = {}, action){
 
     switch(action.type){
         case GET_USER_RESERVATIONS:
+            const userRes = {};
             action.reservations.forEach((reservation) => {
-                newState[reservation.id] = reservation;
+                userRes[reservation.id] = reservation;
             });
-            return newState;
+            return userRes;
 
         case CREATE_RESERVATION:
             newState[action.reservation.id] = action.reservation;

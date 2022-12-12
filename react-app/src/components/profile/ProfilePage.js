@@ -7,21 +7,21 @@ import { fetchReservations } from "../../store/reservations";
 
 function UserProfile(){
     const dispatch = useDispatch();
+    const [isLoaded, setIsLoaded] = useState(false);
     const currentUser = useSelector(state => state.session.user);
 
-    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         if (!isLoaded)
             (async () => {
+                await dispatch(fetchReservations());
                 await dispatch(getUserReviews());
-                dispatch(fetchReservations());
                 setIsLoaded(true);
             })();
-    }, [dispatch, isLoaded]);
+    }, [dispatch, isLoaded, currentUser]);
 
     const [userReviews, setUserReviews] = useState(false);
-    const [reservations, setUserReservations] = useState(true);
+    const [reservations, setUserReservations] = useState(false);
 
     const handleReviewsPage = () => {
         setUserReviews(true)
