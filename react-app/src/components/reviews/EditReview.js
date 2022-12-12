@@ -60,7 +60,7 @@ function EditReviewForm({ closeModal, reviewId }) {
             <option value={4}>4</option>
             <option value={5}>5</option>
           </select>
-          <label>write a detailed review!</label>
+          {/* <label>write a detailed review!</label> */}
           <textarea
             type="text"
             name="review"

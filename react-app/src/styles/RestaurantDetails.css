@@ -1,0 +1,125 @@
+.Restaurant-Page-Container{
+    display: flex;
+    flex-direction: column;
+}
+
+#main-info{
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    line-height: 18px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.main-info-row{
+    align-items: center;
+    color: #336dde;
+    display: flex;
+    flex-direction: row;
+    font-family: GT America,sans-serif;
+    font-size: 16px;
+    height: 50px;
+    padding: 0 20px;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.about-title{
+    font-family: Beatrice,GT America,Helvetica,Verdana,sans-serif;
+    font-size: 14px;
+    letter-spacing: -.22px;
+    line-height: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.about-text, .review-span{
+    font-family: GT America,Helvetica,Verdana,sans-serif;
+    font-size: 16px;
+    letter-spacing: -.25px;
+    line-height: 24px;
+    color: #2a2a2a;
+}
+
+.restaurant-reviews{
+    display: flex;
+    flex-direction: row;
+}
+
+.review-container{
+    border-bottom: 1px solid #d0cccc;
+    min-width: 450px;
+
+}
+
+.review-span{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#location-container{
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    width: 40%;
+}
+
+#location-info{
+    display: flex;
+    flex-direction: column;
+    line-height: 24px;
+    box-sizing: border-box;
+    flex: 1;
+    margin-right: 15px;
+    padding: 20px;
+}
+
+.contact-row{
+    align-items: center;
+    border-top: 1px solid #eaeaea;
+    color: #336dde;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-family: GT America,sans-serif;
+    font-size: 16px;
+    height: 50px;
+    padding: 0 20px;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.fa-circle-info, .fa-phone, .fa-location-dot{
+    margin: 5 -5px 0 5px;
+    margin-right: 8px;
+}
+
+#res-image-container{
+    height: 100%;
+    max-width: unset!important;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    width: 40%;
+}
+
+.Image{
+    background: 50% no-repeat;
+    background-color: #eaeaea;
+    background-size: cover;
+    min-height: 75px;
+    min-width: 75px;
+    width: 100%;
+}

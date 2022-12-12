@@ -23,11 +23,13 @@ body {
     font-size: 15px;
     border-radius: 4px;
     background-color: white;
-    border: 1px solid #E59317;
+    border: none;
     transition-duration: 0.4s;
+
 }
 
 .global-button:hover{
     background-color: #EAB5BB;
     color: #F6F6F6;
+    cursor: pointer;
 }

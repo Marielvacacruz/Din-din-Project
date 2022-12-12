@@ -68,7 +68,7 @@ input:valid + span::after{
     color: #009000;
 }
 
-input{
+input, select{
   display: block;
   width: 40%;
   margin: auto;
@@ -82,4 +82,17 @@ input{
   text-align: center;
 }
 
-
+textarea{
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background: none;
+    text-align: center;
+    resize: none;
+}

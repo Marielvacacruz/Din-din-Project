@@ -97,7 +97,7 @@ const SignUpForm = ({closeModal, switchForm}) => {
         ></input>
       </div>
       <div>
-        <label htmlFor='telNo'>Phone Number (format: 123-456-78901)</label>
+        <label htmlFor='telNo'>Phone Number </label>
         <input
           type='tel'
           id='telnNo'
@@ -106,6 +106,7 @@ const SignUpForm = ({closeModal, switchForm}) => {
           name='phone_number'
           required
           pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+          placeholder='format: 123-456-78901'
           onChange={updatePhoneNumber}
           value={phone_number}
         ></input>

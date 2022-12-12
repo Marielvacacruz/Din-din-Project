@@ -29,21 +29,22 @@ function ReservationCard({reservation, upcoming}){
                     <img className="card-thumbnail" src={restaurant.preview_img_url} alt='restaurant icon'/>
                 </Link>
             </div>
-            <div>
-                <Link to ={`/restaurants/${restaurant.state}/${restaurant.url_slug}`}>{restaurant.name}</Link>
+            <div className="name-container">
+                <Link className="link" to ={`/restaurants/${restaurant.state}/${restaurant.url_slug}`}>
+                    <span className="restaurant-name">{restaurant.name}</span>
+                </Link>
             </div>
-            <div>
-                <span>
-                    <i class="fa-regular fa-calendar"></i>
-                    <p> {formattedDate}</p>
-                    <p>{convertTime}</p>
-                </span>
-                <span>
-                    <i class="fa-solid fa-people-group"></i>
+            <div className="res-details-container">
+                <div className="reservation-summary-row">
+                    <i className="fa-regular fa-calendar"></i>
+                    <p> {formattedDate} {convertTime}</p>
+                </div>
+                <div className="reservation-summary-row">
+                    <i className="fa-solid fa-people-group"></i>
                     <p>{guest_count} Guests</p>
-                </span>
+                </div>
             </div>
-            <div>
+            <div className="card-button-container">
                 {upcoming ? (
                     <div>
                         <EditResModal reservation={reservation}/>
