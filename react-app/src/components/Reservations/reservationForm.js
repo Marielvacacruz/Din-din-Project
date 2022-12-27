@@ -34,7 +34,6 @@ function ReservationForm({ closeModal, restaurantId }) {
         closeModal();
         window.alert("Your reservation has been booked!");
       })
-      .catch((e) => setErrors([...e]));
   };
 
   const exitFromModal = (e) => {
@@ -84,12 +83,13 @@ function ReservationForm({ closeModal, restaurantId }) {
             type="time"
             min="16:00"
             max="23:00"
+            step="900"
             required
             value={time}
             onChange={(e) => setTime(e.target.value)}
           />
         </div>
-        <button className="button" type="submit">
+        <button className="form-button" type="submit">
           book now
         </button>
       </form>

@@ -31,32 +31,38 @@ function RestaurantPage() {
       <div className="Restaurant-Page-Container">
         <div id="main-info">
           <h1>{restaurant.name}</h1>
-          <div>
+          <div className="main-info-row">
             <i class="fa-solid fa-star"></i>
             {restaurant.rating}
           </div>
-          <span>{restaurant.type}</span>
-          <span>{restaurant.price_range}</span>
-          <div>
-            <i class="fa-solid fa-location-dot"></i>
-            {restaurant.neighborhood}
+          <div className="main-info-row">
+            <p>{restaurant.type}</p>
+          </div>
+          <div className="main-info-row">
+            <p>{restaurant.price_range}</p>
+          </div>
+          <div className="main-info-row">
+            <i className="fa-solid fa-location-dot"></i>
+            <p>{restaurant.neighborhood}</p>
           </div>
           {user && <ReservationModal restaurantId={restaurant.id} />}
           {!user && (
             <div>
-              <p>To make a reservation: Please log in or sign up!</p>
+              <p>Please log in or sign up to book your reservation</p>
             </div>
           )}
-          <div id="outer-button-container">
+          {/* <div id="outer-button-container">
             <div id="inner-button-container">SAVE BUTTON HERE</div>
+          </div> */}
+        </div>
+        {/* <div id="res-image-container">
+          <div className="Image">
+            <img className="preview-img" src={restaurant.preview_img_url}></img>
           </div>
-        </div>
-        <div id="res-image-container">
-          <div className="Image">IMAGE HERE</div>
-        </div>
+        </div> */}
         <div id="about">
-          <h3>About {restaurant.name}</h3>
-          {restaurant.about}
+          <div className="about-title">About {restaurant.name}</div>
+          <div className="about-text">{restaurant.about}</div>
         </div>
 
         <div id="restaurant-reviews">
@@ -64,10 +70,10 @@ function RestaurantPage() {
           {reviews &&
             Object.keys(reviews).map((reviewId) => {
               return (
-                <div key={reviewId}>
-                  <span>{reviews[reviewId].user.first_name}</span>
-                  <span>Overall Rating: {reviews[reviewId].star_rating}</span>
-                  <span>{reviews[reviewId].review}</span>
+                <div className="review-container" key={reviewId}>
+                  <span className="review-span">{reviews[reviewId].user.first_name}</span>
+                  <span className="review-span">Overall Rating: {reviews[reviewId].star_rating}</span>
+                  <span className="review-span">{reviews[reviewId].review}</span>
                 </div>
               );
             })}
@@ -81,12 +87,16 @@ function RestaurantPage() {
             </p>
           </div>
           <div id="contact-info">
-            <a href="tel: 1+" {...restaurant.phone_num}>
-              <i class="fa-solid fa-phone"></i>
+            <a className="contact-row" href="tel: 1+" {...restaurant.phone_num}>
+              <i className="fa-solid fa-phone"></i>
               <span>{restaurant.phone_num}</span>
             </a>
-            <a href={restaurant.website_url} target="blank">
-              <i class="fa-solid fa-circle-info"></i>
+            <a
+              className="contact-row"
+              href={restaurant.website_url}
+              target="blank"
+            >
+              <i className="fa-solid fa-circle-info"></i>
               <span>{restaurant.website_url}</span>
             </a>
           </div>

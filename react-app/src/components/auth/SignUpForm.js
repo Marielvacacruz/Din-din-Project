@@ -11,11 +11,19 @@ const SignUpForm = ({closeModal, switchForm}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    let errors= [];
+    if(password !== repeatPassword){
+      errors.push('Passwords must match');
+    };
+    setErrors(errors)
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(first_name,last_name, email, phone_number, password));
       if (data) {
@@ -57,11 +65,11 @@ const SignUpForm = ({closeModal, switchForm}) => {
   }
 
   return (
-    <div className='signup-container'>
-      <button onClick={exitModal}>
+    <div className='form-container'>
+      <button className='exit-icon' onClick={exitModal}>
         <i className="fa-solid fa-xmark"></i>
       </button>
-      <span>Join Din Din</span>
+      <span className='form-heading'>Join Din Din</span>
       <form onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
@@ -75,6 +83,7 @@ const SignUpForm = ({closeModal, switchForm}) => {
           name='first_name'
           onChange={updateFirstName}
           value={first_name}
+          required
         ></input>
       </div>
       <div>
@@ -84,16 +93,24 @@ const SignUpForm = ({closeModal, switchForm}) => {
           name='last_name'
           onChange={updateLastName}
           value={last_name}
+          required
         ></input>
       </div>
       <div>
-        <label>Phone Number</label>
+        <label htmlFor='telNo'>Phone Number </label>
         <input
-          type='text'
+          type='tel'
+          id='telnNo'
+          minLength="9"
+          maxLength="30"
           name='phone_number'
+          required
+          pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+          placeholder='format: 123-456-78901'
           onChange={updatePhoneNumber}
           value={phone_number}
         ></input>
+        <span className='validity'></span>
       </div>
       <div>
         <label>Email</label>
@@ -103,6 +120,7 @@ const SignUpForm = ({closeModal, switchForm}) => {
           placeholder='name@example.com'
           onChange={updateEmail}
           value={email}
+          required={true}
         ></input>
       </div>
       <div>
@@ -112,6 +130,7 @@ const SignUpForm = ({closeModal, switchForm}) => {
           name='password'
           onChange={updatePassword}
           value={password}
+          required={true}
         ></input>
       </div>
       <div>
@@ -124,12 +143,12 @@ const SignUpForm = ({closeModal, switchForm}) => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button className='form-button' type='submit'>Sign Up</button>
     </form>
     <div>
           <span>
             Already have an account?
-            <button onClick={switchLogin}>Log back in</button>
+            <button className='alt-button' onClick={switchLogin}>Log back in</button>
           </span>
         </div>
     </div>

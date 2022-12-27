@@ -1,0 +1,97 @@
+#navigation-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.nav-button{
+    color: #292929;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: Nunito Sans;
+    font-size: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.nav-button:hover{
+    opacity: 0.8;
+}
+
+.signup-button {
+    background-color: transparent;
+    border: 1px solid #3038FF;
+    box-sizing: border-box;
+    color: #00132C;
+    font-family: "Avenir Next LT W01 Bold",sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 16px 23px;
+    position: relative;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .signup-button:hover,
+  .signup-button:active {
+    outline: 0;
+  }
+
+  .signup-button:hover {
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .signup-button:before {
+    background-color: #F6F6F6;
+    content: "";
+    height: calc(100% + 3px);
+    position: absolute;
+    right: -7px;
+    top: -9px;
+    transition: background-color 300ms ease-in;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .signup-button:hover:before {
+    background-color: #E59317;
+  }
+
+  @media (min-width: 768px) {
+    .signup-button {
+      padding: 16px 32px;
+    }
+  }
+
+
+
+.home-link{
+    text-decoration: none;
+}
+
+#din-din{
+    font-size: 80px;
+    color: #3038FF;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Avenir Next LT W01 Bold",sans-serif;
+}
+
+#din-din:hover{
+  opacity: .9;
+}
+
+.home-link-container{
+    display: flex;
+    flex-direction: column;
+    /* align-self: center; */
+    margin-left: 3em;
+    margin-top: 0;
+    align-items: center;
+}

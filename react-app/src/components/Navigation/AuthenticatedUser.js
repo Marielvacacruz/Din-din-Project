@@ -6,7 +6,7 @@ function AuthNav(){
         <div>
             <LogoutButton/>
             <Link to='/profile'>
-                <button>Profile</button>
+                <button className="nav-button" id="profile-button">Profile</button>
             </Link>
         </div>
     )

@@ -13,17 +13,20 @@ function ReviewCard({review}){
     };
 
     return (
-        <div key={review.id}>
-            <Link to={`/restaurants/${review.restaurant?.state}/${review.restaurant?.url_slug}`}>
-                {review.restaurant?.name}
+        <div className="card" key={review.id}>
+            <Link className="link" to={`/restaurants/${review.restaurant?.state}/${review.restaurant?.url_slug}`}>
+                <span className="restaurant-name">{review.restaurant?.name}</span>
             </Link>
-            <div>
-                {review.star_rating}
-                <p>{review.review}</p>
+            <div className="review-details-container">
+                <div>
+                <i className="fa-solid fa-star"></i>
+                <span className="rating-span">{review.star_rating}</span>
+                </div>
+                <span >{review.review}</span>
             </div>
-            <div>
+            <div className="card-button-container">
                 <EditReviewModal reviewId={review.id}/>
-                <button onClick={handleDelete}>Delete Review</button>
+                <button className="global-button" onClick={handleDelete}>Delete Review</button>
 
             </div>
         </div>

@@ -10,7 +10,7 @@ function UserReviews({isLoaded}){
             <h2>Reviews</h2>
             { isLoaded && (
                 Object.values(reviews).length ? (
-                <div>
+                <div className="reviews-list">
                     {Object.values(reviews).map((review) => {
                         return <ReviewCard key={review.id} review={review}/>
 

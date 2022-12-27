@@ -1,0 +1,98 @@
+.form-container{
+    height: 90% !important;
+    width: 100% !important;
+    background-color: white;
+    margin: auto;
+    box-shadow: 0px 3px 3px darkgray;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.form-heading{
+    font-family: "Roboto Condensed", sans-serif;
+    color: #0B0803;
+    font-size: 28px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.exit-icon{
+    position: absolute;
+    right: 25px;
+    color: #0B0803;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+
+.exit-icon:hover{
+    color: #E59317;
+    cursor: pointer;
+}
+
+.form-button{
+    align-items: center;
+    background-color: #F6F6F6;
+    border: 1px solid #0b0803;
+    color: #3038FF;
+    cursor: pointer;
+    justify-content: center;
+    border-radius: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "Roboto Condensed", sans-serif;
+    margin-top: 40px;
+
+}
+
+.alt-button{
+    margin-top: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(203, 49, 165);
+    font-size: 16px;
+}
+
+input:valid + span::after{
+    position: absolute;
+    content: "✓";
+    padding-left: 5px;
+    color: #009000;
+}
+
+input, select{
+  display: block;
+  width: 40%;
+  margin: auto;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+textarea{
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background: none;
+    text-align: center;
+    resize: none;
+}

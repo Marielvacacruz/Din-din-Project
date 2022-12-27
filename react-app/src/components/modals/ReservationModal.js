@@ -7,8 +7,8 @@ function ReservationModal({restaurantId}){
 
     return (
         <>
-        <button onClick={() => setShowModal(true)}>
-            reservation
+        <button className='global-button' onClick={() => setShowModal(true)}>
+            book reservation
         </button>
         {showModal &&(
             <ParentModal onClose={() => setShowModal(false)}>

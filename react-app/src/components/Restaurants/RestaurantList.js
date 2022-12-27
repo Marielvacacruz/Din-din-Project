@@ -20,7 +20,7 @@ function RestaurantList(){
 
     return isLoaded && (
         <div className='restaurant-page'>
-            <h1 className='header'>Explore Restaurants</h1>
+            <div><p id='tag-line'>Book your next dinner reservation with us</p></div>
             <ul className='restaurant-list-container'>
                 {restaurantCard}
             </ul>

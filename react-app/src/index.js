@@ -10,7 +10,13 @@ import { ModalProvider } from './components/modals/Modal';
 import './styles/restaurantCard.css'
 import './styles/RestaurantList.css'
 import './styles/footer.css'
-
+import './styles/navigation.css'
+import './styles/homePage.css'
+import './styles/reservationCard.css'
+import './styles/forms.css'
+import './styles/reviewCard.css'
+import './styles/profile.css'
+import './styles/RestaurantDetails.css'
 
 const store = configureStore();
 
@@ -20,7 +26,7 @@ ReactDOM.render(
       <ModalProvider>
         <App />
       </ModalProvider>
-      </Provider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

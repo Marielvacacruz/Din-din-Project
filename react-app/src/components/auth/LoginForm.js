@@ -35,11 +35,11 @@ const LoginForm = ({closeModal, switchForm}) => {
   }
 
   return (
-    <div>
-      <button className='login-container' onClick={exitModal}>
+    <div className='form-container'>
+      <button className='exit-icon' onClick={exitModal}>
         <i className="fa-solid fa-xmark"></i>
       </button>
-      <span>Welcome Back</span>
+      <span className='form-heading'>Welcome Back</span>
       <form onSubmit={onLogin}>
           <div>
             {errors.map((error, ind) => (
@@ -47,17 +47,17 @@ const LoginForm = ({closeModal, switchForm}) => {
             ))}
           </div>
           <div>
-            <label htmlFor='email'>Email</label>
+            {/* <label htmlFor='email'>Email</label> */}
             <input
               name='email'
-              type='text'
+              type='email'
               placeholder='Email'
               value={email}
               onChange={updateEmail}
             />
           </div>
           <div>
-            <label htmlFor='password'>Password</label>
+            {/* <label htmlFor='password'>Password</label> */}
             <input
               name='password'
               type='password'
@@ -65,13 +65,13 @@ const LoginForm = ({closeModal, switchForm}) => {
               value={password}
               onChange={updatePassword}
             />
-            <button type='submit'>Login</button>
+            <button className='form-button' type='submit'>Login</button>
           </div>
         </form>
         <div>
           <span>
             New Here?
-            <button onClick={switchSignUp}>Sign up!</button>
+            <button className='alt-button' onClick={switchSignUp}>Sign up!</button>
           </span>
         </div>
     </div>

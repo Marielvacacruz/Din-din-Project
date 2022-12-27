@@ -1,6 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {Link, Redirect} from "react-router-dom";
 import {getUserReviews} from '../../store/review';
 import UserReviews from "./pages/userReviews";
 import UserReservations from "./pages/UserReservations";
@@ -8,25 +7,21 @@ import { fetchReservations } from "../../store/reservations";
 
 function UserProfile(){
     const dispatch = useDispatch();
-    const currentUser = useSelector(state => state.session.user);
-
     const [isLoaded, setIsLoaded] = useState(false);
-
-     //if user logs out while on profile redirect to home page:
-    //  if(!currentUser) return <Redirect to="/"/>;
+    const currentUser = useSelector(state => state.session.user);
 
 
     useEffect(() => {
         if (!isLoaded)
             (async () => {
+                await dispatch(fetchReservations());
                 await dispatch(getUserReviews());
-                dispatch(fetchReservations());
                 setIsLoaded(true);
             })();
-    }, [dispatch, isLoaded,]);
+    }, [dispatch, isLoaded, currentUser]);
 
     const [userReviews, setUserReviews] = useState(false);
-    const [reservations, setUserReservations] = useState(true);
+    const [reservations, setUserReservations] = useState(false);
 
     const handleReviewsPage = () => {
         setUserReviews(true)

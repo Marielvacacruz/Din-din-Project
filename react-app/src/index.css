@@ -10,3 +10,26 @@
     font-size: 50px;
     margin-left: 200px;
 }
+
+body {
+    font-family: Nunito Sans;
+    line-height: 1.5;
+
+    background-color: #F6F6F6;
+    color: #0b0803;
+}
+
+.global-button{
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: white;
+    border: none;
+    transition-duration: 0.4s;
+
+}
+
+.global-button:hover{
+    background-color: #EAB5BB;
+    color: #F6F6F6;
+    cursor: pointer;
+}

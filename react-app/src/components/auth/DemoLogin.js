@@ -12,7 +12,7 @@ function DemoLogin(){
     };
 
     return(
-        <button className="demo-button" onClick={(e) => handleClick(e)}>
+        <button className="nav-button" id="demo-login" onClick={(e) => handleClick(e)}>
             Demo User
         </button>
     )

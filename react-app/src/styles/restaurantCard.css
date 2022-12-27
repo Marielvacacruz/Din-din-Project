@@ -12,8 +12,12 @@
     margin: 8px 7px;
 }
 
+/* .restaurant-card:hover {
+    box-shadow: 0 8px  16px 0 rgba(0, 0, 0, 0.2);
+} */
 
-.thumbnail-container {
+
+.img-container {
     height: 220px;
     width: 100%;
     box-sizing: border-box;
@@ -28,7 +32,15 @@
 
 }
 
+.preview-image-thumbnail:hover{
+    opacity: .9;
+    cursor: pointer;
+}
+
 .card-details {
+    display: block;
+    padding: 8px;
+    position:relative;
 
 }
 
@@ -41,6 +53,18 @@
     text-decoration: none;
 }
 
-.fa-solid {
-    color: rgb(18, 103, 124);
+.fa-star {
+    color: #3038FF;
+    margin-right: 5px;
+}
+
+.info-details{
+    height: auto;
+    margin-bottom: 0;
+    line-height: 15%;
+    color: #737373;
+}
+
+#button-container{
+    margin-left: 5em;
 }
