@@ -4,14 +4,14 @@ import session from './session';
 import restaurant from './restaurant'
 import review from './review'
 import reservations from './reservations'
-//import favorites from './favorites'
+import favorites from './favorites'
 
 const rootReducer = combineReducers({
   session,
   restaurant,
   review,
   reservations,
-  //favorites
+  favorites
 });
 
 

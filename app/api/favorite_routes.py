@@ -4,7 +4,7 @@ from ..models import db, Favorite
 
 favorite_routes = Blueprint('favorites', __name__)
 
-@favorite_routes('')
+@favorite_routes('/')
 @login_required
 def get_users_favorites():
     """
