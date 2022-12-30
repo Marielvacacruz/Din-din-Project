@@ -4,7 +4,7 @@ from ..models import db, Favorite
 
 favorite_routes = Blueprint('favorites', __name__)
 
-@favorite_routes('/')
+@favorite_routes.route('/', methods=['GET'])
 @login_required
 def get_users_favorites():
     """
@@ -16,7 +16,7 @@ def get_users_favorites():
     favorites = [fave.to_dict() for fave in faveList.all()]
 
     return jsonify({
-        'user_id': current_user,
+        'user_id': current_user.id,
         'restaurant_ids': [fav['restaurant_id'] for fav in favorites]}), 200
 
 
@@ -43,10 +43,10 @@ def add_favorite():
     )
     db.session.add(new_favorite)
     db.session.commit()
-    return jsonify({"id": add_favorite.id, "user_id": add_favorite.user_id, "restaurant_id": add_favorite.restaurant_id}), 200
+    return jsonify({"id": new_favorite.id, "user_id": new_favorite.user_id, "restaurant_id": new_favorite.restaurant_id}), 200
 
 
-@favorite_routes.route('/<int: restaurant_id>', methods=['DELETE'])
+@favorite_routes.route('/<int:restaurant_id>', methods=['DELETE'])
 @login_required
 def remove_favorite(restaurant_id):
     """

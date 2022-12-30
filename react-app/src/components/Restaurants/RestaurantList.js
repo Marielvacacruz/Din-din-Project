@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom';
 import { getRestaurantsByState } from "../../store/restaurant";
+import { fetchFavorites } from "../../store/favorites";
 
 function RestaurantList(){
     const restaurants = useSelector((state) => Object.values(state.restaurant.restaurants));
@@ -15,6 +16,7 @@ function RestaurantList(){
 
     useEffect(() => {
         dispatch(getRestaurantsByState(state))
+        dispatch(fetchFavorites())
         .then(() => setIsLoaded(true))
     }, [dispatch, state]);
 
