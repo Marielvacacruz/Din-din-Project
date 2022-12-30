@@ -4,6 +4,7 @@ import {getUserReviews} from '../../store/review';
 import UserReviews from "./pages/userReviews";
 import UserReservations from "./pages/UserReservations";
 import { fetchReservations } from "../../store/reservations";
+import { fetchFavorites } from "../../store/favorites";
 
 function UserProfile(){
     const dispatch = useDispatch();
@@ -16,20 +17,30 @@ function UserProfile(){
             (async () => {
                 await dispatch(fetchReservations());
                 await dispatch(getUserReviews());
+                await  dispatch(fetchFavorites());
                 setIsLoaded(true);
             })();
     }, [dispatch, isLoaded, currentUser]);
 
     const [userReviews, setUserReviews] = useState(false);
-    const [reservations, setUserReservations] = useState(false);
+    const [reservations, setUserReservations] = useState(true);
+    const [userFaves, setUserFaves] =useState(false);
 
     const handleReviewsPage = () => {
         setUserReviews(true)
         setUserReservations(false)
+        setUserFaves(false)
     };
 
     const handleReservationsPage= () => {
         setUserReservations(true)
+        setUserReviews(false)
+        setUserFaves(false)
+    };
+
+    const handleFavoritesPage = () => {
+        setUserFaves(true)
+        setUserReservations(false)
         setUserReviews(false)
     };
 
@@ -46,14 +57,14 @@ function UserProfile(){
                         { currentUser && (
                         <button className={userReviews? "toggle-button-selected": "toggle-button"} onClick={handleReviewsPage}>Reviews</button>
                         )}
-                       {/* <button className={userFavorites? "toggle-button-selected": "toggle-button"} onClick={handleFavoritesPage}>Favorites</button> */}
+                       <button className={userFaves? "toggle-button-selected": "toggle-button"} onClick={handleFavoritesPage}>Favorites</button>
                     </div>
                 </div>
             </nav>
             <div className="pages-container">
                 {reservations? <UserReservations isLoaded={isLoaded}/> : null}
                 {userReviews? <UserReviews isLoaded={isLoaded}/> : null}
-                {/* {userBio? <UserBio bio={userProfile.bio}/> : null } */}
+                {/* {userFaves? <UserFaves isLoaded={isLoaded}/> : null } */}
             </div>
 
         </div>
