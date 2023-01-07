@@ -4,11 +4,12 @@ const ADD_FAVORITE = "ADD_FAVORITE";
 const DELETE_FAVORITE = "DELETE_FAVORITE";
 
 //action creators
-const setUserFavorites = (userId, restaurantIds) => {
+const setUserFavorites = (userId, restaurantIds, restaurants) => {
     return {
       type: SET_FAVORITES,
       userId,
-      restaurantIds
+      restaurantIds,
+      restaurants
     };
   };
 
@@ -40,7 +41,7 @@ export const fetchFavorites = () => async (dispatch, getState) => {
 
     if (res.ok) {
       const data = await res.json();
-      dispatch(setUserFavorites(data.user_id, data.restaurant_ids));
+      dispatch(setUserFavorites(data.user_id, data.restaurant_ids, data.restaurants));
     }
     return res;
   };
@@ -83,7 +84,7 @@ export const fetchFavorites = () => async (dispatch, getState) => {
 
   export default function favoritesReducer(state = {}, action) {
     const newState  = {...state};
-    const {restaurantId, restaurantIds, userId} = action;
+    const {restaurantId, restaurantIds, userId, restaurants} = action;
 
     switch (action.type) {
         case SET_FAVORITES:
