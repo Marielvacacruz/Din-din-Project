@@ -1,17 +1,24 @@
 //constants
 const SET_FAVORITES = "SET_FAVORITES";
+const SET_PROFILE_FAVES = "SET_PROFILE_FAVES"
 const ADD_FAVORITE = "ADD_FAVORITE";
 const DELETE_FAVORITE = "DELETE_FAVORITE";
 
 //action creators
-const setUserFavorites = (userId, restaurantIds, restaurants) => {
+const setUserFavorites = (userId, restaurantIds) => {
     return {
       type: SET_FAVORITES,
       userId,
       restaurantIds,
-      restaurants
     };
   };
+
+const setProfileFaves = (restaurants) => {
+    return {
+        type: SET_PROFILE_FAVES,
+        restaurants
+    }
+};
 
 const addFavorite = (userId, restaurantId) => {
     return {
@@ -41,10 +48,26 @@ export const fetchFavorites = () => async (dispatch, getState) => {
 
     if (res.ok) {
       const data = await res.json();
-      dispatch(setUserFavorites(data.user_id, data.restaurant_ids, data.restaurants));
+      dispatch(setUserFavorites(data.user_id, data.restaurant_ids));
     }
     return res;
   };
+
+  //set profile favorites
+  export const fetchProfileFavorites = () => async (dispatch, getState) => {
+    const user = getState().session.user;
+
+    if(!user) return;
+
+    const res = await fetch('/api/favorites/profile');
+
+    if (res.ok) {
+      const data = await res.json();
+      dispatch(setProfileFaves(data.restaurants));
+    }
+    return res;
+  };
+
 
   //add to favorites
   export const addToFavorites = (restaurantId) => async (dispatch, getState) => {
@@ -90,6 +113,12 @@ export const fetchFavorites = () => async (dispatch, getState) => {
         case SET_FAVORITES:
             newState[userId] = restaurantIds;
             break;
+        case SET_PROFILE_FAVES:
+            const restaurant_details = {};
+            restaurants.forEach((restaurant) => {
+                restaurant_details[restaurant.id] = restaurant
+            });
+            return restaurant_details;
         case ADD_FAVORITE:
             newState[userId] = [...newState[userId], restaurantId];
             break;

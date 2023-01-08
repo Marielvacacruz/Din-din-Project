@@ -4,7 +4,8 @@ import {getUserReviews} from '../../store/review';
 import UserReviews from "./pages/userReviews";
 import UserReservations from "./pages/UserReservations";
 import { fetchReservations } from "../../store/reservations";
-import { fetchFavorites } from "../../store/favorites";
+import UserFaves from "./pages/UserFavorites";
+import { fetchProfileFavorites } from "../../store/favorites";
 
 function UserProfile(){
     const dispatch = useDispatch();
@@ -17,14 +18,14 @@ function UserProfile(){
             (async () => {
                 await dispatch(fetchReservations());
                 await dispatch(getUserReviews());
-                await  dispatch(fetchFavorites());
+                await  dispatch(fetchProfileFavorites());
                 setIsLoaded(true);
             })();
     }, [dispatch, isLoaded, currentUser]);
 
     const [userReviews, setUserReviews] = useState(false);
     const [reservations, setUserReservations] = useState(true);
-    const [userFaves, setUserFaves] =useState(false);
+    const [userFaves, setUserFaves] = useState(false);
 
     const handleReviewsPage = () => {
         setUserReviews(true)
@@ -64,7 +65,7 @@ function UserProfile(){
             <div className="pages-container">
                 {reservations? <UserReservations isLoaded={isLoaded}/> : null}
                 {userReviews? <UserReviews isLoaded={isLoaded}/> : null}
-                {/* {userFaves? <UserFaves isLoaded={isLoaded}/> : null } */}
+                {userFaves? <UserFaves isLoaded={isLoaded}/> : null }
             </div>
 
         </div>

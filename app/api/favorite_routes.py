@@ -17,14 +17,13 @@ def get_users_favorites():
 
     return jsonify({
         'user_id': current_user.id,
-        'restaurant_ids': [fav['restaurant_id'] for fav in favorites],
-        'restaurants': [res['restaurant'] for res in favorites]
+        'restaurant_ids': [fav['restaurant_id'] for fav in favorites]
         }), 200
 
 
 @favorite_routes.route('/profile', methods=['GET'])
 @login_required
-def get_users_favorites():
+def get_profile_favorites():
     """
     Returns DETAILS of user's favorite restaurants
     """
@@ -34,8 +33,6 @@ def get_users_favorites():
     favorites = [fave.to_dict() for fave in faveList.all()]
 
     return jsonify({
-        'user_id': current_user.id,
-        'restaurant_ids': [fav['restaurant_id'] for fav in favorites],
         'restaurants': [res['restaurant'] for res in favorites]
         }), 200
 

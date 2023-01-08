@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getRestaurant } from "../../store/restaurant";
 import { getRestaurantReviews } from "../../store/review";
 import ReservationModal from "../modals/ReservationModal";
+import FavoriteButton from "../Favorites/FavoriteButton";
 
 function RestaurantPage() {
   const dispatch = useDispatch();
@@ -29,76 +30,98 @@ function RestaurantPage() {
   return (
     isLoaded && (
       <div className="Restaurant-Page-Container">
-        <div id="main-info">
-          <h1>{restaurant.name}</h1>
-          <div className="main-info-row">
-            <i class="fa-solid fa-star"></i>
-            {restaurant.rating}
-          </div>
-          <div className="main-info-row">
-            <p>{restaurant.type}</p>
-          </div>
-          <div className="main-info-row">
-            <p>{restaurant.price_range}</p>
-          </div>
-          <div className="main-info-row">
-            <i className="fa-solid fa-location-dot"></i>
-            <p>{restaurant.neighborhood}</p>
-          </div>
-          {user && <ReservationModal restaurantId={restaurant.id} />}
-          {!user && (
-            <div>
-              <p>Please log in or sign up to book your reservation</p>
+        <div className="first-row">
+          <div id="main-info">
+            <h1>{restaurant.name}</h1>
+            <div className="main-info-row">
+              <i class="fa-solid fa-star"></i>
+              {restaurant.rating}
             </div>
-          )}
-          {/* <div id="outer-button-container">
-            <div id="inner-button-container">SAVE BUTTON HERE</div>
-          </div> */}
-        </div>
-        {/* <div id="res-image-container">
-          <div className="Image">
-            <img className="preview-img" src={restaurant.preview_img_url}></img>
-          </div>
-        </div> */}
-        <div id="about">
-          <div className="about-title">About {restaurant.name}</div>
-          <div className="about-text">{restaurant.about}</div>
-        </div>
-
-        <div id="restaurant-reviews">
-          <h3>Reviews</h3>
-          {reviews &&
-            Object.keys(reviews).map((reviewId) => {
-              return (
-                <div className="review-container" key={reviewId}>
-                  <span className="review-span">{reviews[reviewId].user.first_name}</span>
-                  <span className="review-span">Overall Rating: {reviews[reviewId].star_rating}</span>
-                  <span className="review-span">{reviews[reviewId].review}</span>
+            <div className="main-info-row">
+              <p>{restaurant.type}</p>
+            </div>
+            <div className="main-info-row">
+              <p>{restaurant.price_range}</p>
+            </div>
+            <div className="main-info-row">
+              <i className="fa-solid fa-location-dot"></i>
+              <p>{restaurant.neighborhood}</p>
+            </div>
+            {user && <ReservationModal restaurantId={restaurant.id} />}
+            {!user && (
+              <div>
+                <p>Please log in or sign up to book your reservation</p>
+              </div>
+            )}
+            {/* <div id="outer-button-container">
+              {user && (
+                <div id="fave-button-container">
+                  <FavoriteButton restaurantId={restaurant.id} />
                 </div>
-              );
-            })}
-        </div>
-        <div id="location-container">
-          <div id="location-info">
-            <h2>{restaurant.name}</h2>
-            <p>{restaurant.address_line}</p>
-            <p>
-              {restaurant.city}, {restaurant.state} {restaurant.zip_code}
-            </p>
+              )}
+            </div> */}
           </div>
-          <div id="contact-info">
-            <a className="contact-row" href="tel: 1+" {...restaurant.phone_num}>
-              <i className="fa-solid fa-phone"></i>
-              <span>{restaurant.phone_num}</span>
-            </a>
-            <a
-              className="contact-row"
-              href={restaurant.website_url}
-              target="blank"
-            >
-              <i className="fa-solid fa-circle-info"></i>
-              <span>{restaurant.website_url}</span>
-            </a>
+          <div id="res-image-container">
+            <div className="Image">
+              <img
+                className="preview-img"
+                src={restaurant.preview_img_url}
+              ></img>
+            </div>
+          </div>
+        </div>
+        <div id="second-row">
+          <div id="about-reviews">
+            <div id="about">
+              <div className="about-title">About {restaurant.name}</div>
+              <div className="about-text">{restaurant.about}</div>
+            </div>
+            <div id="restaurant-reviews">
+              <h3>Reviews</h3>
+              {reviews &&
+                Object.keys(reviews).map((reviewId) => {
+                  return (
+                    <div className="review-container" key={reviewId}>
+                      <span className="review-span">
+                        {reviews[reviewId].user.first_name}
+                      </span>
+                      <span className="review-span">
+                        Overall Rating: {reviews[reviewId].star_rating}
+                      </span>
+                      <span className="review-span">
+                        {reviews[reviewId].review}
+                      </span>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+          <div id="location-container">
+            <div id="location-info">
+              <h2>{restaurant.name}</h2>
+              <p>{restaurant.address_line}</p>
+              <p>
+                {restaurant.city}, {restaurant.state} {restaurant.zip_code}
+              </p>
+            </div>
+            <div id="contact-info">
+              <a
+                className="contact-row"
+                href="tel: 1+"
+                {...restaurant.phone_num}
+              >
+                <i className="fa-solid fa-phone"></i>
+                <span>{restaurant.phone_num}</span>
+              </a>
+              <a
+                className="contact-row"
+                href={restaurant.website_url}
+                target="blank"
+              >
+                <i className="fa-solid fa-circle-info"></i>
+                <span>{restaurant.website_url}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

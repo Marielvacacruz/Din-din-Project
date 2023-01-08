@@ -11,7 +11,8 @@ const NavBar = () => {
     <nav id='navigation-container'>
       <div className='home-link-container'>
         <NavLink className='home-link' exact to='/'>
-          <p id='din-din'>Din Din</p>
+          <p id='din-din'>Din Din <i className="fa-duotone fa-plate-utensils"></i></p>
+
           </NavLink>
       </div>
       {currentUser? <AuthNav /> : <UnAuthNav/>}
