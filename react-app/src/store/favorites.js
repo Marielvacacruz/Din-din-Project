@@ -1,24 +1,18 @@
 //constants
 const SET_FAVORITES = "SET_FAVORITES";
-const SET_PROFILE_FAVES = "SET_PROFILE_FAVES"
 const ADD_FAVORITE = "ADD_FAVORITE";
 const DELETE_FAVORITE = "DELETE_FAVORITE";
 
 //action creators
-const setUserFavorites = (userId, restaurantIds) => {
+const setUserFavorites = (userId, restaurantIds, restaurants) => {
     return {
       type: SET_FAVORITES,
       userId,
       restaurantIds,
+      restaurants
     };
   };
 
-const setProfileFaves = (restaurants) => {
-    return {
-        type: SET_PROFILE_FAVES,
-        restaurants
-    }
-};
 
 const addFavorite = (userId, restaurantId) => {
     return {
@@ -48,22 +42,7 @@ export const fetchFavorites = () => async (dispatch, getState) => {
 
     if (res.ok) {
       const data = await res.json();
-      dispatch(setUserFavorites(data.user_id, data.restaurant_ids));
-    }
-    return res;
-  };
-
-  //set profile favorites
-  export const fetchProfileFavorites = () => async (dispatch, getState) => {
-    const user = getState().session.user;
-
-    if(!user) return;
-
-    const res = await fetch('/api/favorites/profile');
-
-    if (res.ok) {
-      const data = await res.json();
-      dispatch(setProfileFaves(data.restaurants));
+      dispatch(setUserFavorites(data.user_id, data.restaurant_ids, data.restaurants));
     }
     return res;
   };
@@ -107,18 +86,18 @@ export const fetchFavorites = () => async (dispatch, getState) => {
 
   export default function favoritesReducer(state = {}, action) {
     const newState  = {...state};
+    newState.details = {...state.details}
     const {restaurantId, restaurantIds, userId, restaurants} = action;
 
     switch (action.type) {
         case SET_FAVORITES:
+            const restaurant_details = {}
             newState[userId] = restaurantIds;
-            break;
-        case SET_PROFILE_FAVES:
-            const restaurant_details = {};
             restaurants.forEach((restaurant) => {
-                restaurant_details[restaurant.id] = restaurant
-            });
-            return restaurant_details;
+                        restaurant_details[restaurant.id] = restaurant
+                    });
+            newState.details =  restaurant_details
+            break;
         case ADD_FAVORITE:
             newState[userId] = [...newState[userId], restaurantId];
             break;

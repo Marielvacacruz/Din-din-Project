@@ -2,8 +2,7 @@ import { useSelector } from "react-redux";
 import RestaurantCard from "../../Restaurants/RestaurantCard";
 
 function UserFaves({isLoaded}){
-    const restaurants = useSelector(state => state.favorites);
-    console.log(restaurants)
+    const restaurants = useSelector(state => state.favorites.details);
 
     return(
         <div>

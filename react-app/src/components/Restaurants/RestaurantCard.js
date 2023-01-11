@@ -1,6 +1,7 @@
 import {useHistory, Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import ReservationModal from '../modals/ReservationModal';
+import FavoriteButton from '../Favorites/FavoriteButton';
 
 function RestaurantCard({restaurant}){
     const history = useHistory();
@@ -45,6 +46,11 @@ function RestaurantCard({restaurant}){
                     <p>Please log in or sign up to book reservation</p>
                 </div>
             )} */}
+            {user && (
+                <div id="fave-button-container">
+                  <FavoriteButton restaurantId={restaurant.id} />
+                </div>
+              )}
         </div>
     )
 };

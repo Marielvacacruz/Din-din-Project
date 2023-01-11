@@ -53,13 +53,13 @@ function RestaurantPage() {
                 <p>Please log in or sign up to book your reservation</p>
               </div>
             )}
-            {/* <div id="outer-button-container">
+            <div id="outer-button-container">
               {user && (
                 <div id="fave-button-container">
                   <FavoriteButton restaurantId={restaurant.id} />
                 </div>
               )}
-            </div> */}
+            </div>
           </div>
           <div id="res-image-container">
             <div className="Image">

@@ -5,7 +5,7 @@ import UserReviews from "./pages/userReviews";
 import UserReservations from "./pages/UserReservations";
 import { fetchReservations } from "../../store/reservations";
 import UserFaves from "./pages/UserFavorites";
-import { fetchProfileFavorites } from "../../store/favorites";
+import { fetchFavorites} from "../../store/favorites";
 
 function UserProfile(){
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function UserProfile(){
             (async () => {
                 await dispatch(fetchReservations());
                 await dispatch(getUserReviews());
-                await  dispatch(fetchProfileFavorites());
+                await  dispatch(fetchFavorites());
                 setIsLoaded(true);
             })();
     }, [dispatch, isLoaded, currentUser]);
