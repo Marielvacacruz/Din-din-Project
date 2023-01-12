@@ -9,7 +9,7 @@ function UserFaves({isLoaded}){
             <h1>Favorites</h1>
             { isLoaded && (
                 Object.values(restaurants).length ? (
-                <div>
+                <div className="restaurant-list-container">
                     {Object.values(restaurants).map((restaurant) => {
                         return <RestaurantCard key={restaurant.id} restaurant={restaurant}/>
 

@@ -22,7 +22,7 @@
 
 .signup-button {
     background-color: transparent;
-    border: 1px solid #3038FF;
+    border: 1px solid #304C4F;
     box-sizing: border-box;
     color: #00132C;
     font-family: "Avenir Next LT W01 Bold",sans-serif;
@@ -60,7 +60,7 @@
   }
 
   .signup-button:hover:before {
-    background-color: #E59317;
+    background-color: #c08c3c;
   }
 
   @media (min-width: 768px) {
@@ -77,7 +77,7 @@
 
 #din-din{
     font-size: 80px;
-    color: #3038FF;
+    color: #304C4F;
     margin-bottom: 0;
     margin-top: 0;
     font-family: "Avenir Next LT W01 Bold",sans-serif;

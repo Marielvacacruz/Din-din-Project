@@ -66,6 +66,7 @@ function RestaurantPage() {
               <img
                 className="preview-img"
                 src={restaurant.preview_img_url}
+                alt="interior of restaurant"
               ></img>
             </div>
           </div>

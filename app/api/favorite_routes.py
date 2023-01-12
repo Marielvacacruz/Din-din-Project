@@ -15,6 +15,7 @@ def get_users_favorites():
 
     favorites = [fave.to_dict() for fave in faveList.all()]
 
+    #ToDO: optimize return to make it as OOP as possible
     return jsonify({
         'user_id': current_user.id,
         'restaurant_ids': [fav['restaurant_id'] for fav in favorites],

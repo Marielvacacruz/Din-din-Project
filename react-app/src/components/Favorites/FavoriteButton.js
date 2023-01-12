@@ -27,8 +27,8 @@ function FavoriteButton({restaurantId}){
     };
 
     return (
-        <button className="Favorite-Button" onClick={handleClick}>
-            {isFave? <i class="fa-solid fa-heart"></i> : <i class="fa-regular fa-heart"></i>}
+        <button className="favorite-button" onClick={handleClick}>
+            {isFave? <i className="fa-solid fa-heart"></i> : <i class="fa-regular fa-heart"></i>}
         </button>
     )
 

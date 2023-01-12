@@ -84,6 +84,7 @@ export const fetchFavorites = () => async (dispatch, getState) => {
     }
   };
 
+  //Todo: optimize store set up (nest restaurant details in restaurantIds)
   export default function favoritesReducer(state = {}, action) {
     const newState  = {...state};
     newState.details = {...state.details}
@@ -102,7 +103,7 @@ export const fetchFavorites = () => async (dispatch, getState) => {
             newState[userId] = [...newState[userId], restaurantId];
             break;
         case DELETE_FAVORITE:
-            delete newState[userId].restaurantId
+            delete newState.details[restaurantId]
             break;
 
         default:
