@@ -68,15 +68,21 @@ The application will now be running at http://localhost:3000/
         - View other user's Reviews via restaurant details page
         - Edit a Review
         - Delete a Review
+        
+ ## Favorites
+    A logged in user can:
+        - Favorite a restaurant
+        - Unfavorite a restaurant
+        - View a list of their favorite restaurants via user profile
 
 # Future Features
 
 This clone is a work in progress, these features will be available in the future...
 
 -  CRUD actions for Restaurants (add a restaurant and delete a restaurant)
--  CRUD actions for Favorites (favorite a restaurant and view favorites via user profile)
 -  Image Gallery (viewed via restaurant details page)
 -  Google Map + directions to restaurant
 -  Second step to confirm reservation cancellation
+-  Email or Text reservation confirmation 
 
 ## For more detailed documentation checkout this project's [wiki](https://github.com/Marielvacacruz/Din-din-Project/wiki)
