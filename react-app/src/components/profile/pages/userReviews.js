@@ -7,7 +7,7 @@ function UserReviews({isLoaded}){
 
     return (
         <div>
-            <h2>Reviews</h2>
+            <h3 className="profile-sub-heading">Reviews</h3>
             { isLoaded && (
                 Object.values(reviews).length ? (
                 <div className="reviews-list">

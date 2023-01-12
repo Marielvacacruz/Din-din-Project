@@ -19,7 +19,7 @@ function UserReservations({isLoaded}){
                 pastReservations.push(reservation)
             } else upcomingReservations.push(reservation)
         });
-        
+
 
         upcomingReservations.sort((a, b) => a.day < b.day ? -1 : 1);
 
@@ -56,12 +56,12 @@ function UserReservations({isLoaded}){
     return (
         <div>
             <div>
-                <h3>Upcoming Reservations</h3>
+                <h3 className="profile-sub-heading">Upcoming Reservations</h3>
                 {isLoaded && upcomingContainer}
                 {!upcomingContainer && (<p>No upcoming reservations.</p>)}
             </div>
             <div>
-                <h3>Past Reservations</h3>
+                <h3 className="profile-sub-heading">Past Reservations</h3>
                 {isLoaded && pastContainer}
                 {!pastContainer && (<p>Nothing to show.</p>)}
             </div>

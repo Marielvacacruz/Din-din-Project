@@ -6,7 +6,7 @@ function UserFaves({isLoaded}){
 
     return(
         <div>
-            <h1>Favorites</h1>
+            <h3 className="profile-sub-heading">Favorites</h3>
             { isLoaded && (
                 Object.values(restaurants).length ? (
                 <div className="restaurant-list-container">

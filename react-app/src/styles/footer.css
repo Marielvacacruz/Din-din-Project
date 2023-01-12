@@ -8,8 +8,8 @@ footer{
     display: flex;
     position: fixed;
     flex-direction: row;
-    justify-content:  center;
-    align-self: flex-start;
+    justify-content: center;
+    align-self: center;
     width: 50%;
     bottom: 0;
     left: 40%;
@@ -20,7 +20,7 @@ footer{
     padding-left: .5em;
     padding-right: .5em;
     text-decoration: none;
-    color: rgb(203, 49, 165);
+    color: #c08c3c;
 }
 
 .footer-links:hover{

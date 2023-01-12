@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function AuthNav(){
     return(
-        <div>
+        <div className='nav-button-container'>
             <LogoutButton/>
             <Link to='/profile'>
                 <button className="nav-button" id="profile-button">Profile</button>

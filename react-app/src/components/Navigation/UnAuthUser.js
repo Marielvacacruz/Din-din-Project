@@ -4,7 +4,7 @@ import DemoLogin from '../auth/DemoLogin'
 
 function UnAuthNav(){
     return(
-        <div>
+        <div className='nav-button-container'>
             <LoginModal/>
             <SignupModal/>
             <DemoLogin/>

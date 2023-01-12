@@ -3,6 +3,14 @@
     flex-direction: row;
     justify-content: space-between;
     margin: auto;
+    padding-top: 1rem;
+}
+
+.nav-button-container{
+  display: flex;
+    align-items: center;
+    margin-left: 3em;
+    margin-top: 0;
 }
 
 .nav-button{
